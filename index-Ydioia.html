@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YDOIA Agency — Informe Operativo · Closer Search</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#060606;
+    --void-soft:#0F0F0F;
+    --void-card:#131313;
+    --line:#242220;
+    --gold:#C9A84C;
+    --gold-soft:#C9A96E;
+    --gold-dim:#8E763A;
+    --ink:#EDE7D8;
+    --ink-dim:#B4AC98;
+    --ink-faint:#807A6C;
+    --radius:6px;
+    --maxw:880px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--void);
+    color:var(--ink);
+    font-family:'DM Sans',sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Cormorant Garamond',serif;
+    color:var(--ink);
+    margin:0 0 .35em 0;
+    line-height:1.15;
+    font-weight:600;
+  }
+  .cinzel{font-family:'Cinzel',serif;}
+  a{color:var(--gold);}
+
+  .shell{display:flex; min-height:100vh;}
+  nav.sidebar{
+    width:256px; flex:0 0 256px;
+    background:var(--void-soft);
+    border-right:1px solid var(--line);
+    color:#C9C3B4;
+    position:sticky; top:0; height:100vh;
+    overflow-y:auto;
+    padding:32px 22px 40px;
+  }
+  .brandmark{display:flex; align-items:center; gap:12px; margin-bottom:6px;}
+  .brandmark svg{width:36px; height:36px; flex:0 0 auto;}
+  .brand-name{font-family:'Cinzel',serif; font-weight:600; font-size:.98rem; color:#fff; letter-spacing:.06em;}
+  .brand-name .search{color:var(--gold);}
+  .brand-tagline{
+    font-size:.65rem; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--gold-dim); margin:2px 0 6px 48px;
+  }
+  .brand-client{
+    font-size:.72rem; margin:0 0 24px 48px; color:var(--ink-faint);
+  }
+  .brand-client strong{color:var(--gold-soft);}
+  nav.sidebar .nav-group-label{
+    font-size:.66rem; text-transform:uppercase; letter-spacing:.12em;
+    color:var(--ink-faint); margin:22px 0 8px;
+  }
+  nav.sidebar a{
+    display:block; color:#B4AC98; text-decoration:none;
+    font-size:.87rem; padding:6px 0 6px 12px; border-left:2px solid transparent;
+    transition:.15s;
+  }
+  nav.sidebar a:hover{color:var(--gold-soft); border-left-color:var(--gold);}
+  nav.sidebar a.sourced{color:var(--ink); font-weight:700;}
+  nav.sidebar a.sourced:hover{color:var(--gold-soft);}
+  nav.sidebar .quicklinks{margin-top:28px; padding-top:18px; border-top:1px solid var(--line);}
+  nav.sidebar .quicklinks a{
+    background:rgba(201,168,76,.08); border-radius:4px; margin-bottom:6px;
+    padding:9px 10px 9px 12px; border-left:2px solid var(--gold); font-size:.81rem; color:var(--gold-soft);
+  }
+
+  main{flex:1; min-width:0;}
+
+  .topbar{
+    background:var(--void-card); color:var(--ink-dim);
+    padding:14px 44px; display:flex; gap:26px; flex-wrap:wrap;
+    align-items:center; font-size:.82rem;
+    border-bottom:1px solid var(--gold-dim);
+  }
+  .topbar strong{color:var(--gold); font-weight:600;}
+  .topbar .divider{width:1px; height:14px; background:var(--line);}
+
+  .hero{
+    padding:64px 44px 46px;
+    background:
+      radial-gradient(ellipse at 88% -10%, rgba(201,168,76,.10), transparent 55%),
+      var(--void);
+    border-bottom:1px solid var(--line);
+  }
+  .hero .eyebrow{
+    font-size:.72rem; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--gold); font-weight:600; margin-bottom:16px;
+    display:flex; align-items:center; gap:10px;
+    font-family:'Cinzel',serif;
+  }
+  .hero h1{font-size:2.7rem; max-width:760px; font-weight:600; color:#fff;}
+  .hero .lede{max-width:660px; font-size:1.06rem; color:var(--ink-dim); margin-top:16px;}
+  .hero .promise{
+    margin-top:26px; padding:20px 24px; background:var(--void-card);
+    border-left:2px solid var(--gold); border-radius:0 6px 6px 0;
+    max-width:660px; font-family:'Cormorant Garamond',serif; font-size:1.25rem;
+    font-weight:600; font-style:italic; color:var(--gold-soft);
+  }
+
+  section{padding:52px 44px; max-width:var(--maxw); margin:0 auto; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .section-tag{
+    font-size:.7rem; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--gold-dim); font-weight:600; margin-bottom:8px; font-family:'Cinzel',serif;
+  }
+  section h2{font-size:1.75rem; margin-bottom:.3em; color:#fff;}
+  section h3{font-size:1.18rem; margin-top:28px; color:var(--gold-soft); font-weight:600;}
+  section p{color:var(--ink-dim); max-width:70ch;}
+  .subnote{color:var(--ink-faint); font-size:.88rem;}
+
+  .seal-divider{
+    display:flex; align-items:center; gap:14px; margin:0 44px;
+    max-width:var(--maxw); margin-left:auto; margin-right:auto;
+  }
+  .seal-divider .line{flex:1; height:1px; background:linear-gradient(90deg,var(--line),transparent);}
+  .seal-divider .line.right{background:linear-gradient(90deg,transparent,var(--line));}
+  .seal-divider svg{width:22px; height:22px;}
+
+  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px;}
+  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px;}
+  .card{
+    background:var(--void-card); border:1px solid var(--line);
+    border-radius:var(--radius); padding:18px 20px;
+  }
+  .card h4{font-size:1.02rem; margin-bottom:6px; color:var(--ink);}
+  .card p{margin:0; font-size:.9rem; color:var(--ink-dim);}
+  .pill{
+    display:inline-block; font-size:.68rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+    padding:3px 10px; border-radius:2px; background:rgba(201,168,76,.1); color:var(--gold);
+    margin-bottom:8px; border:1px solid var(--gold-dim); font-family:'Cinzel',serif;
+  }
+
+  table{width:100%; border-collapse:collapse; margin-top:18px; font-size:.9rem; background:var(--void-card); border-radius:var(--radius); overflow:hidden;}
+  thead th{
+    background:#000; color:var(--gold); text-align:left; padding:11px 14px;
+    font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; font-weight:600; font-family:'Cinzel',serif;
+    border-bottom:1px solid var(--gold-dim);
+  }
+  tbody td{padding:11px 14px; border-bottom:1px solid var(--line); vertical-align:top; color:var(--ink-dim);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:nth-child(even){background:rgba(255,255,255,.015);}
+  td.label{font-weight:600; color:var(--ink); white-space:nowrap;}
+
+  .phase{display:grid; grid-template-columns:44px 1fr; gap:18px; margin-top:22px;}
+  .phase .num{
+    width:44px; height:44px; border-radius:50%; background:#000; border:1px solid var(--gold-dim);
+    color:var(--gold); display:flex; align-items:center; justify-content:center;
+    font-family:'Cinzel',serif; font-weight:600; font-size:.98rem;
+  }
+  .phase .num.active{background:var(--gold); color:#060606; border-color:var(--gold);}
+  .phase-body{padding-bottom:8px; border-left:1px solid var(--line); padding-left:18px; margin-left:22px; margin-top:-40px; padding-top:44px;}
+  .phase-body h4{margin-bottom:4px; font-size:1.05rem; color:var(--ink);}
+  .phase-body .result{
+    margin-top:8px; font-size:.85rem; background:rgba(201,168,76,.08); color:var(--gold-soft);
+    padding:8px 12px; border-radius:4px; display:inline-block; border:1px solid var(--gold-dim);
+  }
+
+  details.acc{
+    background:var(--void-card); border:1px solid var(--line); border-radius:var(--radius);
+    margin-top:10px; overflow:hidden;
+  }
+  details.acc summary{
+    cursor:pointer; list-style:none; padding:14px 18px; font-weight:600; color:var(--ink);
+    display:flex; justify-content:space-between; align-items:center; font-size:.95rem;
+  }
+  details.acc summary::-webkit-details-marker{display:none;}
+  details.acc summary::after{content:'+'; font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:var(--gold); flex:0 0 auto;}
+  details.acc[open] summary::after{content:'–';}
+  details.acc[open] summary{border-bottom:1px solid var(--line);}
+  details.acc .acc-body{padding:14px 18px 18px; font-size:.9rem; color:var(--ink-dim);}
+  details.acc .acc-body p{margin:.5em 0;}
+  details.acc .acc-body .say{
+    background:rgba(201,168,76,.06); border-left:2px solid var(--gold); padding:10px 14px;
+    border-radius:0 4px 4px 0; margin:8px 0; font-style:italic; color:var(--ink);
+  }
+
+  .paybox{background:#000; border:1px solid var(--gold-dim); border-radius:8px; padding:28px 30px; margin-top:22px;}
+  .paybox h3{color:var(--gold); margin-top:0; font-family:'Cinzel',serif; font-size:1.1rem; letter-spacing:.03em;}
+  .pay-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:16px;}
+  .pay-card{background:var(--void-card); border:1px solid var(--line); border-radius:6px; padding:16px;}
+  .pay-card .plan{font-weight:600; font-size:.9rem; color:var(--ink); margin-bottom:2px;}
+  .pay-card .amount{font-family:'Cormorant Garamond',serif; font-weight:700; color:var(--gold); font-size:1.15rem; margin-bottom:10px;}
+  .pay-card a.link{
+    display:block; word-break:break-all; font-size:.72rem; color:var(--ink-dim);
+    background:#000; padding:8px 10px; border-radius:4px; text-decoration:none; border:1px solid var(--line);
+  }
+  .pay-card a.link:hover{color:var(--gold-soft); border-color:var(--gold-dim);}
+
+  .dodont{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px;}
+  .dodont .box{border-radius:var(--radius); padding:16px 18px; border:1px solid var(--line);}
+  .dodont .do{background:rgba(201,168,76,.05);}
+  .dodont .dont{background:rgba(150,40,30,.08); border-color:#4A2A24;}
+  .dodont h4{margin-bottom:8px; font-size:.85rem; text-transform:uppercase; letter-spacing:.06em; font-family:'Cinzel',serif;}
+  .dodont .do h4{color:var(--gold-soft);}
+  .dodont .dont h4{color:#D08370;}
+  .dodont ul{margin:0; padding-left:18px; font-size:.87rem; color:var(--ink-dim);}
+  .dodont li{margin-bottom:5px;}
+
+  .callout{
+    background:rgba(201,168,76,.07); border:1px solid var(--gold-dim); border-radius:var(--radius);
+    padding:16px 20px; margin-top:18px; font-size:.9rem; color:var(--ink-dim);
+  }
+  .callout strong{color:var(--gold);}
+
+  footer{
+    padding:34px 44px 60px; max-width:var(--maxw); margin:0 auto;
+    color:var(--ink-faint); font-size:.8rem; display:flex; align-items:center; gap:10px;
+  }
+  footer svg{width:18px; height:18px; opacity:.6;}
+
+  .checklist{list-style:none; padding:0; margin-top:16px;}
+  .checklist li{
+    display:flex; gap:10px; align-items:flex-start; padding:7px 0; font-size:.9rem; color:var(--ink-dim);
+    border-bottom:1px dashed var(--line);
+  }
+  .checklist li:last-child{border-bottom:none;}
+  .checklist .box{flex:0 0 15px; width:15px; height:15px; border:1px solid var(--gold-dim); border-radius:2px; margin-top:2px;}
+
+  @media (max-width:900px){
+    .shell{flex-direction:column;}
+    nav.sidebar{position:relative; width:100%; height:auto; flex:none;}
+    .grid-2, .grid-3, .pay-grid, .dodont{grid-template-columns:1fr;}
+    .hero, section, .topbar, footer{padding-left:22px; padding-right:22px;}
+    .seal-divider{margin-left:22px; margin-right:22px;}
+    .hero h1{font-size:2.1rem;}
+  }
+
+  .calc-row{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 0; border-bottom:1px solid var(--line);}
+  .calc-row label{color:var(--ink); font-size:.92rem;}
+  .calc-row input{width:130px; background:var(--void-card); border:1px solid var(--gold-dim); color:var(--gold-soft); font-family:'DM Sans',sans-serif; font-size:1rem; padding:8px 10px; border-radius:4px; text-align:right;}
+  .calc-row input:focus{outline:none; border-color:var(--gold);}
+  @media (max-width:700px){
+    table{display:block; overflow-x:auto; -webkit-overflow-scrolling:touch;}
+    td.label{white-space:normal;}
+    .calc-row input{width:100px;}
+  }
+  .pend{display:inline-block; font-size:.62rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; padding:2px 8px; border-radius:2px; color:#D9B26A; border:1px dashed var(--gold-dim); margin-left:8px; vertical-align:middle; font-family:'Cinzel',serif;}
+  .calc-sep{margin:22px 0 4px; font-family:'Cinzel',serif; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-dim);}
+  details.acc .acc-body ul{margin:.5em 0; padding-left:18px;}
+  details.acc .acc-body li{margin-bottom:6px;}
+  .pitch-frame{margin-top:18px; border:1px solid var(--gold-dim); border-radius:var(--radius); overflow:hidden; background:#000;}
+  .pitch-frame iframe{display:block; width:100%; height:760px; border:0;}
+  button.pitch-open{background:var(--gold); color:#060606; border:none; font-family:'Cinzel',serif; font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; padding:12px 20px; border-radius:4px; cursor:pointer;}
+  button.pitch-open:hover{background:var(--gold-soft);}
+  @media (max-width:700px){ .pitch-frame iframe{height:600px;} }
+  .pay-card span.link{display:block; font-size:.72rem; color:var(--ink-faint); background:#000; padding:8px 10px; border-radius:4px; border:1px dashed var(--line);}
+
+  /* Texto justificado sin distorsión: sin guiones, sin estirar líneas cortas */
+  p, li, .say, .callout, .card p, .phase-body p, .acc-body p, tbody td, .hero .lede, .subnote{
+    text-align:justify; text-justify:inter-word; hyphens:none; -webkit-hyphens:none;
+    text-align-last:left;
+  }
+  td.label, .amount, .plan, .pill, .section-tag, h1, h2, h3, h4, .checklist li, .topbar, .brand-client, .brand-tagline, nav.sidebar a, .pay-card .subnote, .hero .promise{
+    text-align:left;
+  }
+
+  /* ===== Diseño web Closer Search ===== */
+  body{padding-top:76px;}
+  header.site{position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(6,6,6,.92); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+  .site-inner{max-width:1180px; margin:0 auto; padding:0 28px; height:76px; display:flex; align-items:center; justify-content:space-between; gap:20px;}
+  .logo{display:flex; align-items:center; gap:12px; text-decoration:none;}
+  .logo svg{width:38px; height:38px; flex:0 0 auto;}
+  .logo-text{display:flex; flex-direction:column; line-height:1.15;}
+  .logo .brand-name{font-family:'Cinzel',serif; font-weight:600; font-size:1.02rem; color:#fff; letter-spacing:.08em;}
+  .logo .brand-name .search{color:var(--gold);}
+  .logo-sub{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:.86rem; color:var(--ink-faint);}
+  .site-nav{display:flex; align-items:center; gap:6px;}
+  .site-nav > a, .dd-btn{color:var(--ink-dim); text-decoration:none; font-family:'DM Sans',sans-serif; font-size:.9rem; font-weight:500; padding:10px 14px; background:none; border:none; cursor:pointer; border-radius:4px;}
+  .site-nav > a:hover, .dd-btn:hover, .dd:focus-within .dd-btn{color:var(--gold-soft);}
+  .caret{font-size:.7rem; opacity:.7;}
+  .dd{position:relative;}
+  .dd-menu{position:absolute; top:100%; left:0; min-width:270px; background:var(--void-soft); border:1px solid var(--line); border-top:2px solid var(--gold); border-radius:0 0 6px 6px; padding:8px 0; display:none; box-shadow:0 18px 40px rgba(0,0,0,.5);}
+  .dd:hover .dd-menu, .dd:focus-within .dd-menu{display:block;}
+  .dd-menu a{display:block; padding:9px 18px; color:var(--ink-dim); text-decoration:none; font-size:.88rem;}
+  .dd-menu a:hover{color:var(--gold-soft); background:var(--gold-glow, rgba(201,168,76,.08));}
+  .site-nav > a.nav-cta{background:var(--gold); color:#060606; font-weight:600; margin-left:8px; padding:11px 20px;}
+  .site-nav > a.nav-cta:hover{background:var(--gold-soft); color:#060606;}
+  .menu-toggle{display:none; background:none; border:1px solid var(--line); border-radius:4px; width:44px; height:44px; cursor:pointer; flex-direction:column; justify-content:center; align-items:center; gap:5px;}
+  .menu-toggle span{display:block; width:20px; height:2px; background:var(--gold);}
+  main{max-width:none;}
+  section{scroll-margin-top:90px;}
+  .web-hero{padding:96px max(28px, calc((100% - 1124px) / 2)) 70px; max-width:none; margin:0; border-bottom:1px solid var(--line);
+    background:radial-gradient(ellipse at 85% 0%, rgba(201,168,76,.13), transparent 55%), radial-gradient(ellipse at 0% 100%, rgba(201,168,76,.05), transparent 50%);}
+  .web-hero h1{font-size:3.6rem; line-height:1.08; max-width:900px; letter-spacing:-.01em;}
+  .web-hero h1 em{font-style:italic; color:var(--gold);}
+  .web-hero .lede{max-width:720px; font-size:1.12rem;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-top:30px;}
+  .btn-primary, .btn-secondary{display:inline-block; text-decoration:none; font-family:'DM Sans',sans-serif; font-weight:600; font-size:.95rem; padding:15px 26px; border-radius:4px; transition:.15s;}
+  .btn-primary{background:var(--gold); color:#060606;}
+  .btn-primary:hover{background:var(--gold-soft);}
+  .btn-secondary{border:1px solid var(--gold-dim); color:var(--gold-soft);}
+  .btn-secondary:hover{border-color:var(--gold); color:var(--gold);}
+  .hero-stats{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin-top:46px; background:var(--line); border:1px solid var(--line); border-radius:6px; overflow:hidden; max-width:900px;}
+  .hero-stats > div{background:var(--void-soft); padding:20px 18px;}
+  .hero-stats .n{display:block; font-family:'Cormorant Garamond',serif; font-weight:700; font-size:2rem; color:var(--gold); line-height:1;}
+  .hero-stats .l{display:block; font-size:.78rem; color:var(--ink-dim); margin-top:8px; line-height:1.35;}
+  .hero-meta{margin-top:26px; font-size:.8rem; color:var(--ink-faint); display:flex; flex-wrap:wrap; gap:8px;}
+  .hero-meta strong{color:var(--gold); font-weight:600;}
+  .web-hero .promise{max-width:900px;}
+  .site-footer{max-width:none; margin-top:40px; padding:56px 28px 30px; background:var(--void-soft); border-top:1px solid var(--line); display:block; text-align:left;}
+  .ft-grid{max-width:1180px; margin:0 auto; display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:34px;}
+  .ft-grid h5{font-family:'Cinzel',serif; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin:0 0 12px;}
+  .ft-grid a, .ft-grid span{display:block; color:var(--ink-dim); text-decoration:none; font-size:.88rem; margin-bottom:8px;}
+  .ft-grid a:hover{color:var(--gold-soft);}
+  .ft-brand p{font-size:.88rem; color:var(--ink-faint); margin-top:14px; max-width:300px; text-align:left;}
+  .ft-brand .logo span{display:inline; margin:0;}
+  .ft-brand .logo .logo-text{display:flex;}
+  .ft-bottom{max-width:1180px; margin:34px auto 0; padding-top:20px; border-top:1px solid var(--line); font-size:.78rem; color:var(--ink-faint);}
+  .site-footer svg{width:38px; height:38px; opacity:1;}
+  @media (max-width:980px){
+    .menu-toggle{display:flex;}
+    header.site{backdrop-filter:none; -webkit-backdrop-filter:none; background:var(--void);}
+    .site-nav{display:none; position:fixed; top:76px; left:0; right:0; height:calc(100vh - 76px); background:var(--void); flex-direction:column; align-items:stretch; gap:0; padding:12px 22px 40px; overflow-y:auto; border-top:1px solid var(--line);}
+    body.menu-open .site-nav{display:flex;}
+    .site-nav > a, .dd-btn{padding:14px 4px; font-size:1rem; text-align:left; border-bottom:1px solid var(--line); border-radius:0;}
+    .dd-btn{width:100%;}
+    .dd-menu{display:block; position:static; border:none; box-shadow:none; background:none; padding:0 0 8px 12px; min-width:0;}
+    .dd-menu a{padding:10px 4px;}
+    .site-nav > a.nav-cta{margin:18px 0 0; text-align:center; border-bottom:none;}
+    .web-hero{padding:56px 22px 46px;}
+    .site-inner{padding:0 18px;}
+    .web-hero h1{font-size:2.3rem;}
+    .hero-stats{grid-template-columns:1fr 1fr;}
+    .ft-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:520px){
+    .web-hero h1{font-size:2rem;}
+    .logo-sub{display:none;}
+    .ft-grid{grid-template-columns:1fr;}
+    .btn-primary,.btn-secondary{width:100%; text-align:center;}
+  }
+
+  /* ===== Añadidos YDOIA ===== */
+  .avatars{display:flex; flex-direction:column; gap:14px; margin-top:18px;}
+  .avatars .card p{max-width:none;}
+  .cheat{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:18px;}
+  .cheat .card ul{margin:6px 0 0; padding-left:18px; font-size:.88rem; color:var(--ink-dim);}
+  .cheat .card li{margin-bottom:4px; text-align:left;}
+  .tag-rec{display:inline-block; font-size:.62rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); border:1px solid var(--line); border-radius:2px; padding:2px 7px; margin-left:8px; vertical-align:middle; font-family:'DM Sans',sans-serif; font-weight:600;}
+  .pay-card .detail{font-size:.78rem; color:var(--ink-dim);}
+  .calc-row select{background:#000; color:var(--ink); border:1px solid var(--gold-dim); border-radius:6px; padding:8px 10px; font-size:.95rem;}
+  .to-top{position:fixed; right:20px; bottom:20px; width:42px; height:42px; border-radius:50%; background:var(--void-card); border:1px solid var(--gold-dim); color:var(--gold); display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:1.1rem; z-index:90;}
+  @media (max-width:760px){ .cheat{grid-template-columns:1fr;} table{display:block; overflow-x:auto; -webkit-overflow-scrolling:touch;} }
+  @media (max-width:760px){ main td, main th{overflow-wrap:normal; word-break:normal;} main td{min-width:96px;} main td.label{min-width:110px;} }
+</style>
+</head>
+<body>
+<header class="site" id="siteHeader">
+  <div class="site-inner">
+    <a class="logo" href="#top"><svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#C9A84C" stroke-width="3" fill="#060606"/><polygon points="50,16 79,32 79,68 50,84 21,68 21,32" stroke="#8E763A" stroke-width="1.2" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#C9A84C" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="logo-text"><span class="brand-name">CLOSER<span class="search"> SEARCH</span></span><span class="logo-sub">Selección de talento de cierre</span></span></a>
+    <button class="menu-toggle" type="button" aria-label="Abrir el menú" onclick="document.body.classList.toggle('menu-open')"><span></span><span></span><span></span></button>
+    <nav class="site-nav" onclick="if(event.target.tagName==='A') document.body.classList.remove('menu-open')"><a href="#top">Inicio</a><div class="dd"><button class="dd-btn" type="button">El producto <span class="caret">▾</span></button><div class="dd-menu"><a href="#resumen">Resumen ejecutivo</a><a href="#avatar">Avatar y criterios de descarte</a><a href="#dolores">Dolores y miedos</a><a href="#calculadora">Calculadora de pacientes</a><a href="#oferta">Oferta: planes y add-ons</a><a href="#incluye">Qué incluye</a><a href="#fases">Fases del acompañamiento</a><a href="#prueba">Prueba social y proyecciones</a></div></div><div class="dd"><button class="dd-btn" type="button">Venta <span class="caret">▾</span></button><div class="dd-menu"><a href="#embudo">Embudo de captación</a><a href="#chuleta">Chuleta de llamada</a><a href="#conversaciones">Modelo de conversación</a><a href="#objeciones">Manejo de objeciones</a><a href="#faq">Preguntas frecuentes</a><a href="#limites">Límites y qué no prometer</a></div></div><div class="dd"><button class="dd-btn" type="button">Operativa <span class="caret">▾</span></button><div class="dd-menu"><a href="#inversion">Pagos y enlaces</a><a href="#recursos">Recursos</a><a href="#seguimiento">Seguimiento de prospectos</a><a href="#kpis">Métricas y estados</a><a href="#proceso-closer">Procedimiento del setter-closer</a><a href="#anexo">Anexo: información original</a></div></div><a class="nav-cta" href="https://dmartinezvhune-create.github.io/Proyecto-YDOIA/guia.html" target="_blank" rel="noopener">Guía de ventas</a></nav>
+  </div>
+</header>
+
+<main id="top">
+    <div class="hero web-hero">
+      <div class="eyebrow"><svg viewBox="0 0 100 100" fill="none" width="16" height="16"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#C9A84C" stroke-width="6" fill="none"/></svg>Informe operativo · YDOIA Agency</div>
+      <h1>Que la clínica aparezca cuando el paciente pregunta. <em>Y que nadie se quede sin respuesta.</em></h1>
+      <p class="lede">Sistema de Captación Inteligente para clínicas dentales: web construida para convertir, SEO local preparado para Google y para las IAs y, en los planes PRO y Authority, un asistente de IA que atiende y agenda pacientes 24/7. Guía operativa para el equipo de setter-closers: captación 100% en frío sobre las clínicas que extrae el YDOIA Scraper, primer contacto por teléfono y cierre con el Efecto Wow, la demo con la marca de la propia clínica.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="https://dmartinezvhune-create.github.io/Proyecto-YDOIA/guia.html" target="_blank" rel="noopener">Abrir la guía de ventas</a>
+        <a class="btn-secondary" href="#inversion">Planes y enlaces de pago</a>
+      </div>
+      <div class="hero-stats">
+        <div><span class="n">790€</span><span class="l">setup desde, + 97€/mes sin permanencia</span></div>
+        <div><span class="n">24 h</span><span class="l">hábiles para preparar el Efecto Wow</span></div>
+        <div><span class="n">10 días</span><span class="l">hábiles desde el material hasta el sistema funcionando</span></div>
+        <div><span class="n">24/7</span><span class="l">Asistente IA en PRO y Authority</span></div>
+      </div>
+      <div class="promise">"Nosotros generamos las oportunidades; vosotros cerráis los tratamientos."</div>
+      <div class="hero-meta"><span><strong>Cliente</strong> YDOIA Agency</span><span class="dot">·</span><span>Web CRO, SEO local y Asistente IA</span><span class="dot">·</span><span>Vertical: clínicas dentales</span></div>
+    </div>
+
+    <section id="resumen">
+      <div class="section-tag">00 · Resumen</div>
+      <h2>Resumen ejecutivo</h2>
+      <p>Cuatro ideas para tener claras antes de empezar a trabajar esta cuenta.</p>
+
+      <div class="phase">
+        <div class="num active">1</div>
+        <div class="phase-body">
+          <h4>Tres planes con un único Setup y un mantenimiento sin permanencia</h4>
+          <p>Starter (790€), PRO (1.490€) y Authority (3.890€), cada uno con precio promo para lotes de 10 clínicas (490€, 990€ y 2.490€) y un mantenimiento mensual de 97€, 197€ o 297€ que se puede cancelar en cualquier momento.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">2</div>
+        <div class="phase-body">
+          <h4>Un solo vertical: clínicas dentales privadas</h4>
+          <p>El decisor es el <strong style="color:var(--ink);">dueño o director de la clínica</strong>. El modelo podría escalar a otros sectores de salud y servicios, pero hoy todo el material y el discurso son dentales.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">3</div>
+        <div class="phase-body">
+          <h4>Captación 100% outbound, por zonas</h4>
+          <p>Las clínicas salen del YDOIA Scraper y llegan en CSV por localidades, de forma gradual. Se reparten por territorios para que nadie se solape. Por exclusividad técnica, en cada zona YDOIA trabaja con un máximo de 2 clínicas cliente.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">4</div>
+        <div class="phase-body">
+          <h4>El "Efecto Wow" es el arma del cierre</h4>
+          <p>La clínica ve su propio logo, colores y nombre ya integrados en una arquitectura funcional. No es "te enseñamos cómo funciona un sistema"; es "ya hemos empezado a construir el tuyo, míralo". Venta consultiva: primero diagnosticar, luego proponer.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="avatar">
+      <div class="section-tag">01 · Cliente ideal</div>
+      <h2>Avatar del cliente (vertical: clínicas dentales)</h2>
+      <p>Perfil del decisor en una clínica dental privada.</p>
+      <table>
+        <thead><tr><th>Variable</th><th>Detalle</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Rol</td><td>Dueño o director de la clínica dental. Es quien toma la decisión final.</td></tr>
+          <tr><td class="label">Tipo de negocio</td><td>Clínica dental privada con estructura y equipo propio.</td></tr>
+          <tr><td class="label">Situación actual</td><td>Agenda llena entre semana, pero nadie atiende cuando la clínica cierra; web antigua o solo informativa; por detrás de otras clínicas en Google Maps y ausente en las respuestas de ChatGPT.</td></tr>
+          <tr><td class="label">Motivación principal</td><td>Dejar de perder pacientes nuevos por no responder a tiempo o por no aparecer, sin depender de recepción ni de agencias que no rinden cuentas.</td></tr>
+          <tr><td class="label">Descarte</td><td>Sin capacidad económica para invertir; franquicia corporativa donde el director local no decide ni tiene acceso al titular. Clínica de un único profesional sin estructura: en principio no encaja, pero puede ser viable según el caso.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Los 3 perfiles de clínica</h3>
+      <div class="avatars">
+        <div class="card">
+          <div class="pill">Avatar 1</div>
+          <h4>"El Desactualizado"</h4>
+          <p>La clínica de toda la vida. Prestigio de boca a boca, pero Google Maps y la web abandonados. Miedo a quedarse atrás.</p>
+          <p class="say">"Digitalizamos tu prestigio local. Hacemos que cuando un paciente nuevo pregunte en su móvil o a ChatGPT por el mejor dentista, los algoritmos entiendan tu clínica con claridad para poder recomendarla."</p>
+        </div>
+        <div class="card">
+          <div class="pill">Avatar 2</div>
+          <h4>"El Quemado por Agencias"</h4>
+          <p>El escéptico. Ha pagado anuncios en Meta o Google y solo consigue leads curiosos que no cogen el teléfono.</p>
+          <p class="say">"No somos una agencia de anuncios. Construimos un sistema de Captación Inteligente. La web convierte el tráfico que ya tienes, y la IA filtra a los curiosos para que a recepción solo lleguen pacientes agendados."</p>
+        </div>
+        <div class="card">
+          <div class="pill">Avatar 3</div>
+          <h4>"El Estancado"</h4>
+          <p>El ambicioso bloqueado. Le va bien, pero depende de meses buenos y malos. Recepción saturada, no puede escalar.</p>
+          <p class="say">"Trabajaremos tu visibilidad en tu zona de Google y el Asistente IA funcionará 24/7 recogiendo demanda de alto valor, para que puedas escalar sin reventar a tu equipo."</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="dolores">
+      <div class="section-tag">02 · Psicografía</div>
+      <h2>Dolores, deseos y miedos</h2>
+      <div class="grid-2">
+        <div class="card">
+          <div class="pill">Frustraciones frecuentes</div>
+          <p>Pacientes que escriben o llaman cuando la clínica está cerrada y el lunes ya han pedido cita en otra; pagar cada mes a una agencia sin saber qué hace; una web montada hace años que saben que está mal; depender de una recepcionista que se pone mala, se va de vacaciones o dimite.</p>
+        </div>
+        <div class="card">
+          <div class="pill">Deseos profundos</div>
+          <p>Ser la clínica que aparece cuando un paciente pregunta en Google o en ChatGPT por el mejor dentista de su zona, y que a recepción solo lleguen pacientes ya agendados, no curiosos.</p>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="pill">Sueño oculto</div>
+          <p>Dominar su zona en Google y tener un sistema que recoja demanda de alto valor las 24 horas, para crecer sin reventar al equipo.</p>
+        </div>
+        <div class="card">
+          <div class="pill">Miedo principal</div>
+          <p>Quedarse atrás: que la franquicia o la clínica que lleva menos tiempo que ellos se quede con sus pacientes solo por aparecer antes o por responder a cualquier hora.</p>
+        </div>
+      </div>
+
+      <h3>En sus propias palabras</h3>
+      <table>
+        <thead><tr><th>#</th><th>Lo que dicen</th></tr></thead>
+        <tbody>
+          <tr><td class="label">1</td><td><em>"Tenemos la agenda llena de lunes a viernes, pero en cuanto cierra la clínica nadie coge el teléfono, y el lunes ya nos cuesta localizarlos o ya han pedido cita en otra clínica."</em></td></tr>
+          <tr><td class="label">2</td><td><em>"Pagamos cada mes a una agencia de marketing y no sé exactamente qué me están haciendo ni si funciona."</em></td></tr>
+          <tr><td class="label">3</td><td><em>"Mi web la montó un sobrino hace tres años. Sé que está mal, pero meterme en otro proyecto de web me da pereza."</em></td></tr>
+          <tr><td class="label">4</td><td><em>"Una recepcionista se pone mala, se va de vacaciones o dimite, y nos quedamos vendidos."</em></td></tr>
+          <tr><td class="label">5</td><td><em>"Busco mi clínica en Google y aparezco en cuarta posición. Por delante tengo a una clínica de franquicia y a dos que llevan menos tiempo que yo."</em></td></tr>
+          <tr><td class="label">6</td><td><em>"Un paciente me dijo que le preguntó a ChatGPT qué clínica dental le recomendaban en su barrio y no salí. Ni siquiera sabía que eso era posible."</em></td></tr>
+        </tbody>
+      </table>
+      <div class="callout"><strong>Idea clave para la conversación:</strong> además del tráfico directo a ChatGPT o Perplexity, que crece un 42,8% interanual según YDOIA, Google ya está introduciendo resúmenes generados por IA (AI Overviews) en las búsquedas locales. Las clínicas que no optimicen su estructura de datos para estas IAs desaparecerán de la primera recomendación.</div>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="calculadora">
+      <div class="section-tag">03 · Herramienta</div>
+      <h2>Calculadora: ¿cuántos pacientes cubren el sistema?</h2>
+      <p>La herramienta de la objeción "es muy caro". Se usa en la llamada de cierre con los números de la propia clínica: su ticket medio de un paciente nuevo y los pacientes que cree que se le escapan al mes porque nadie responde fuera de horario. Cálculo: coste del primer año del plan (setup + 12 meses de mantenimiento) ÷ ticket medio = pacientes al año que necesita para cubrirlo.</p>
+      <div class="paybox">
+        <h3>Con sus números</h3>
+        <div class="calc-row"><label for="c-plan">Plan</label>
+          <select id="c-plan"><option value="790|490|97">Starter</option><option value="1490|990|197" selected>PRO</option><option value="3890|2490|297">Authority</option><option value="750|490|127">Secretaría de IA 24/7</option></select></div>
+        <div class="calc-row"><label for="c-precio">Precio</label>
+          <select id="c-precio"><option value="of">Oficial</option><option value="pr">Promo (lote de 10 vigente)</option></select></div>
+        <div class="calc-row"><label for="c-ticket">Ticket medio de un paciente nuevo (€)</label><input id="c-ticket" type="number" min="1" step="50" value="1200"></div>
+        <div class="calc-row"><label for="c-perd">Pacientes que cree perder al mes</label><input id="c-perd" type="number" min="0" step="1" value="3"></div>
+        <div class="pay-grid" style="margin-top:22px;">
+          <div class="pay-card"><div class="plan">Coste del primer año</div><div class="amount" id="r-anual">—</div></div>
+          <div class="pay-card"><div class="plan">Pacientes al año para cubrirlo</div><div class="amount" id="r-pa">—</div></div>
+          <div class="pay-card"><div class="plan">Pacientes al mes</div><div class="amount" id="r-pm">—</div></div>
+        </div>
+        <p class="calc-sep">Lo que, según su estimación, se le escapa</p>
+        <div class="pay-grid">
+          <div class="pay-card"><div class="plan">Al mes</div><div class="amount" id="r-esc-m">—</div></div>
+          <div class="pay-card"><div class="plan">Al año</div><div class="amount" id="r-esc-a">—</div></div>
+          <div class="pay-card"><div class="plan">Veces el coste del primer año</div><div class="amount" id="r-x">—</div></div>
+        </div>
+        <p class="subnote" id="r-note" style="margin-top:14px;"></p>
+      </div>
+      <div class="callout"><strong>Cómo usarla:</strong> pregunta y escribe sus números delante de él. Que sea su ticket y su estimación, no la nuestra, es lo que hace que el argumento funcione. Como referencia, YDOIA sitúa el tratamiento dental nuevo entre 500€ y 3.000€. Es una cuenta con sus datos, no una promesa de resultados.</div>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="oferta">
+      <div class="section-tag">04 · Producto</div>
+      <h2>Oferta: planes y diferencial</h2>
+      <p>Todos los servicios se basan en un único pago inicial (Setup) y un mantenimiento recurrente mensual sin permanencia.</p>
+
+      <h3>Los 3 planes</h3>
+      <table>
+        <thead><tr><th>Plan</th><th>Incluye</th><th>Setup oficial</th><th>Setup promo</th><th>Mantenimiento</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Starter</td><td>Web Profesional CRO, SEO Local Básico (incl. Google Business Profile) y soporte</td><td>790€</td><td>490€</td><td>97€/mes</td></tr>
+          <tr><td class="label">PRO</td><td>Web CRO, 1 landing page, SEO Local Básico, Asistente IA con reservador de citas, soporte e informe mensual de rendimiento</td><td>1.490€</td><td>990€</td><td>197€/mes</td></tr>
+          <tr><td class="label">Authority</td><td>Web CRO, 3 landing pages, SEO Local Avanzado, Asistente IA con reservador de citas, 1 automatización a elegir, soporte prioritario e informe mensual avanzado</td><td>3.890€</td><td>2.490€</td><td>297€/mes</td></tr>
+        </tbody>
+      </table>
+      <p class="subnote">El mantenimiento cubre servidor, hosting, consumo de IA, horas de mantenimiento, revisiones técnicas, actualizaciones e informes de rendimiento.</p>
+
+      <h3>Planes stand-alone y add-ons</h3>
+      <p>Además de los tres planes, hay complementos para subir el ticket o para entrar en clínicas que no quieren tocar su web actual.</p>
+      <table>
+        <thead><tr><th>Servicio</th><th>Para qué</th><th>Precio</th></tr></thead>
+        <tbody>
+          <tr><td class="label" colspan="3" style="color:var(--gold);">Stand-alone (abrepuertas sin tocar su web)</td></tr>
+          <tr><td class="label">Secretaría de IA 24/7</td><td>El asistente de IA solo, sin web nueva</td><td>Setup promo 490€ (oficial 750€) + 127€/mes</td></tr>
+          <tr><td class="label">Auditoría técnica y setup SEO</td><td>Ejecutar la mejora SEO (no confundir con la auditoría del Grid, que es un diagnóstico gratuito de prospección)</td><td>Promo 250€ (oficial 390€), pago único</td></tr>
+          <tr><td class="label" colspan="3" style="color:var(--gold);">Venta directa (cierre en caliente)</td></tr>
+          <tr><td class="label">Landing page extra</td><td>Una página para un tratamiento concreto (implantes, ortodoncia…)</td><td>290€</td></tr>
+          <tr><td class="label">Setup de campañas Google/Meta Ads</td><td>Puesta en marcha de publicidad</td><td>400€ de setup + 15%/mes de gestión</td></tr>
+          <tr><td class="label" colspan="3" style="color:var(--gold);">Avanzados (requieren validación técnica posterior)</td></tr>
+          <tr><td class="label">Segundo idioma completo</td><td>Toda la web y el asistente en otro idioma</td><td>+40% del precio del Setup original</td></tr>
+          <tr><td class="label">Integración API con su software dental</td><td>Conectar con el programa de gestión de la clínica</td><td>1.200€ – 2.500€</td></tr>
+          <tr><td class="label">Automatizaciones o flujos a medida</td><td>Flujos adicionales a los del plan</td><td>Desde 200€ por flujo</td></tr>
+          <tr><td class="label">Horas de desarrollo custom</td><td>Desarrollos a medida</td><td>90€/hora</td></tr>
+        </tbody>
+      </table>
+      <div class="callout"><strong>Add-ons avanzados:</strong> nunca se cierran en la llamada sin validación técnica. Se recogen y se escalan por el canal de Discord de YDOIA.</div>
+
+      <h3>Qué es una Web Profesional CRO</h3>
+      <p>No es una web "bonita" ni un escaparate digital. Es una arquitectura construida sobre más de 50 estudios de comportamiento humano, modelos predictivos, eye&#8209;tracking, mapas de calor y psicología de la persuasión. Cada bloque, jerarquía visual y llamada a la acción está colocada para que el visitante haga una sola cosa: contactar o reservar cita.</p>
+      <div class="grid-2">
+        <div class="card"><h4>Los pacientes no leen: escanean</h4><p>Las redes han entrenado al cerebro para la lectura rápida y vertical. Si la web no está adaptada a ese patrón, el visitante se va sin convertir, aunque el servicio sea excelente.</p></div>
+        <div class="card"><h4>Las IAs leen distinto a Google</h4><p>ChatGPT, Gemini o Perplexity rastrean la web, pero si no está construida "en su idioma" no entienden la clínica con confianza suficiente para recomendarla. En una respuesta de IA, o eres la recomendación principal o no existes: no hay página 2.</p></div>
+      </div>
+
+      <h3>El diferencial: la "Ventaja Injusta"</h3>
+      <p>Las agencias tradicionales diseñan webs según "lo que queda bonito". YDOIA opera con Inteligencia de Mercado: antes de contactar con la clínica, rastrea su ciudad con el <strong>YDOIA Scraper</strong> (herramienta propia de rastreo de negocios geolocalizados y nodos de posicionamiento) y mapea qué hace su competencia y dónde están sus puntos ciegos. Con esos datos aplica su <strong>Framework CRO Dental</strong>. Además, optimiza al máximo la ficha de Google Business Profile e inyecta datos estructurados para que las IAs entiendan a la clínica.</p>
+      <p>YDOIA nace de crear sistemas automatizados e IA para el sector de la educación. No se presenta como agencia de marketing tradicional, sino como <strong>ingenieros de conversión</strong>.</p>
+
+      </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="incluye">
+      <div class="section-tag">05 · Entrega</div>
+      <h2>Qué incluye y bonus</h2>
+      <table>
+        <thead><tr><th>Elemento</th><th>Plan</th><th>Descripción</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Web Profesional CRO</td><td>Todos</td><td>Arquitectura orientada a que el visitante contacte o reserve cita</td></tr>
+          <tr><td class="label">SEO Local con Google Business Profile</td><td>Todos</td><td>Básico en Starter y PRO, avanzado en Authority, con datos estructurados para las IAs</td></tr>
+          <tr><td class="label">Landing pages</td><td>PRO (1) y Authority (3)</td><td>Para una campaña o un servicio concreto de la clínica</td></tr>
+          <tr><td class="label">Asistente IA y reservador de citas</td><td>PRO y Authority</td><td>Atiende, cualifica y agenda pacientes 24/7, entrenado con la información de la clínica</td></tr>
+          <tr><td class="label">Automatización a elegir</td><td>Authority</td><td>Seguimiento, recordatorios, reactivación de pacientes, etc.</td></tr>
+          <tr><td class="label">Informe mensual de rendimiento</td><td>PRO y Authority</td><td>Avanzado en Authority</td></tr>
+          <tr><td class="label">Soporte</td><td>Todos</td><td>Prioritario en Authority</td></tr>
+        </tbody>
+      </table>
+      <h3>Bonus (ganchos gratuitos de entrada)</h3>
+      <div class="grid-2">
+        <div class="card"><div class="pill">Prospección</div><h4>Auditoría SEO Local (el Grid)</h4><p>Informe gratuito con el mapa de su zona en rojo para generar urgencia. Ahora es un PDF (hay un <a href="auditoria-seo-dental-ejemplo.pdf" target="_blank" rel="noopener">ejemplo dental</a>); YDOIA está terminando una herramienta que lo generará en formato web privado con un clic, y permitirá saber si la clínica lo ha abierto y leído.</p></div>
+        <div class="card"><div class="pill">Prospección</div><h4>Web plantilla + IA genérica</h4><p>Demo general para la fase de setter: una web CRO de ejemplo con el asistente de IA funcionando, para que la clínica lo pruebe gratis.</p>
+          <p style="text-align:left; margin-top:8px;"><a href="https://lumina.ydoia.com/" target="_blank" rel="noopener">lumina.ydoia.com</a></p></div>
+      </div>
+      <div class="card" style="margin-top:14px;"><div class="pill">Cierre</div><h4>El Efecto Wow: su sistema ya funcionando</h4><p>Solo para la llamada de cierre, con el lead ya cualificado. YDOIA clona la web CRO maestra, le pone el logo y los colores de la clínica y entrena la IA con sus datos antes de la reunión. El closer recibe un enlace privado (tipo <em>preview.ydoia.com/clinica-x</em>) para enseñárselo en directo.</p>
+        <p style="margin-top:10px;"><strong style="color:var(--gold-soft);">Cómo se pide:</strong> con al menos 24 horas hábiles de antelación a la llamada de cierre, a través del formulario interno de YDOIA, indicando solo el nombre y la web actual de la clínica. Si la llamada se agenda para el mismo día, se intenta igualmente o se cierra con la demo general.</p></div>
+
+      <h3>Qué trae la Auditoría SEO Local</h3>
+      <table>
+        <thead><tr><th>Bloque</th><th>Qué le enseña a la clínica</th></tr></thead>
+        <tbody>
+          <tr><td class="label">1 · Grid Local Map</td><td>Su posición en un mapa de puntos alrededor del negocio para su palabra clave, y su cuota de visibilidad local (Share of Local Voice): cuántas veces sale en los primeros puestos de Google Maps.</td></tr>
+          <tr><td class="label">2 · Competidores vulnerables</td><td>Qué competidores le están quitando visibilidad y en qué zonas puede superarlos.</td></tr>
+          <tr><td class="label">3 · Semáforo de reseñas</td><td>Si la competencia está consiguiendo reseñas nuevas más rápido. Google Maps prima las valoraciones recientes.</td></tr>
+          <tr><td class="label">4 · Aparición en IA (GEO)</td><td>Si aparece cuando se pregunta a ChatGPT o Gemini por los mejores de su ciudad.</td></tr>
+          <tr><td class="label">5 · Share of Local Voice</td><td>El resumen visual de su cuota de visibilidad frente a la competencia.</td></tr>
+        </tbody>
+      </table>
+      <div class="callout"><strong>Ejemplo dental:</strong> auditoría de una clínica anonimizada, "Lumina Dental Madrid", para la palabra clave "implantes dentales madrid": cuota de visibilidad local del 11,11%, buenas posiciones solo en las calles cercanas y ausencia en la recomendación de ChatGPT y Gemini. Es el mismo formato que recibirá cada clínica con sus datos reales. <a href="auditoria-seo-dental-ejemplo.pdf" target="_blank" rel="noopener">Ver la auditoría de ejemplo (PDF)</a></div>
+      <div class="callout"><strong>Solo para formación del equipo:</strong> este ejemplo nombra y valora a clínicas competidoras reales de Madrid. No se enseña ni se reenvía a ninguna clínica; a cada una se le enseña siempre su propia auditoría.</div>
+      <div>
+      </div>
+      <p class="subnote">El Kit GEO / Test de Visibilidad es de otra línea de negocio de YDOIA (academias) y no se ofrece en esta cuenta.</p>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="fases">
+      <div class="section-tag">06 · Programa</div>
+      <h2>Fases del acompañamiento</h2>
+      <p>Línea temporal desde el cierre hasta que el sistema está funcionando.</p>
+      <div class="phase">
+        <div class="num active">1</div>
+        <div class="phase-body">
+          <h4>Cierre y pago del Setup</h4>
+          <p>La clínica paga el Setup al cierre de la llamada con el enlace de Stripe del plan (o por seQura o transferencia; si se pacta, en 2 o 3 pagos). El closer marca la clínica como "Cerrado/Pagado".</p>
+          <span class="result">Resultado esperado: plan elegido y proyecto confirmado</span>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">2</div>
+        <div class="phase-body">
+          <h4>Paquete de bienvenida y onboarding</h4>
+          <p>Al pasar a "Cerrado/Pagado" se avisa a YDOIA (el aviso automático está pendiente de conectar; mientras tanto, se avisa por el canal acordado con YDOIA), que envía a la clínica su paquete de bienvenida: la factura de Stripe, un email de bienvenida y el enlace al formulario de onboarding técnico (información de la clínica, datos para la IA, logo, fotos y accesos). Desde aquí YDOIA asume toda la producción y el closer pasa a su siguiente llamada.</p>
+          <span class="result">Resultado esperado: YDOIA tiene todo para construir</span>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">3</div>
+        <div class="phase-body">
+          <h4>Construcción, 10 días hábiles</h4>
+          <p>Web CRO, landing pages del plan, SEO local con Google Business Profile y, en PRO y Authority, el Asistente IA con reservador de citas; en Authority, además, la automatización elegida. El plazo cuenta desde que llega el material completo.</p>
+          <span class="result">Resultado esperado: el sistema queda publicado y funcionando</span>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">4</div>
+        <div class="phase-body">
+          <h4>Mantenimiento mensual</h4>
+          <p>Servidor, hosting, consumo de IA, revisiones técnicas y actualizaciones. En PRO y Authority, informe mensual de rendimiento (avanzado en Authority). Sin permanencia: si se cancela, se suspende el servicio.</p>
+          <span class="result">Resultado esperado: en PRO y Authority, la clínica ve cada mes el impacto en su informe sin tener que preguntar</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="prueba">
+      <div class="section-tag">07 · Prueba social</div>
+      <h2>Prueba social y proyecciones</h2>
+      <p>Los casos que comparte YDOIA y las proyecciones del sector. Se cuentan como lo que son: ejemplos y referencias, nunca como promesa.</p>
+      <h3>Casos de clínicas</h3>
+      <div class="grid-2">
+        <div class="card"><div class="pill">Madrid</div><h4>Captación fuera de horario</h4><p>Una clínica empezó a recibir solicitudes de cita de pacientes que escribían después del cierre y los domingos. El asistente los atendió, los cualificó y los agendó automáticamente, sin intervención del equipo.</p></div>
+        <div class="card"><div class="pill">Málaga</div><h4>Mejora de conversión orgánica</h4><p>Una clínica migró de una web informativa a la arquitectura CRO y los contactos desde búsqueda orgánica mejoraron en las primeras semanas: visitas que antes rebotaban pasaron a ser llamadas y formularios.</p></div>
+      </div>
+      <h3>Estándar de mejora del ecosistema (proyecciones)</h3>
+      <p>Son benchmarks: el impacto promedio potencial de pasar de una web tradicional al ecosistema CRO de YDOIA en el sector dental.</p>
+      <table>
+        <thead><tr><th>Referencia</th><th>Proyección</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Conversión web</td><td>Hasta un 300% más de conversión del tráfico que antes se perdía en la web, con la IA convirtiendo esos leads orgánicos en pacientes agendados en los primeros 60 días.</td></tr>
+          <tr><td class="label">No-shows</td><td>Reducción de las citas fantasma del 40% al 10% con el seguimiento automatizado por IA.</td></tr>
+          <tr><td class="label">Tráfico en Maps</td><td>Hasta el triple de tráfico local orgánico en Google Maps.</td></tr>
+        </tbody>
+      </table>
+      <div class="callout"><strong>Cómo contarlo:</strong> como el impacto promedio potencial de la tecnología en el sector ("como proyección del sector, pasar a este sistema podría suponer…"). Nunca como garantía ni como el resultado de una clínica concreta, porque son métricas predictivas, no casos auditados.</div>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="embudo">
+      <div class="section-tag">08 · Embudo</div>
+      <h2>Embudo de captación</h2>
+      <p>La captación de esta fase es 100% outbound, sobre las clínicas que extrae el YDOIA Scraper.</p>
+
+      <div class="phase">
+        <div class="num active">1</div>
+        <div class="phase-body">
+          <h4>Extracción y reparto</h4>
+          <p>El YDOIA Scraper extrae y cualifica las clínicas de una localidad (autoridad digital, valoraciones, huecos de mercado). Llegan en CSV y se reparten por territorios.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">2</div>
+        <div class="phase-body">
+          <h4>Primer contacto y agenda</h4>
+          <p>Entrada con el gancho asignado (A: mapa del Grid / B: demo del asistente), cualificación y agenda de una llamada de 10&#8209;15 minutos con el dueño o director.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">3</div>
+        <div class="phase-body">
+          <h4>Llamada de cierre</h4>
+          <p>Diagnóstico, datos de su ciudad, demo con su marca (Efecto Wow), precio y silencio. Pago del Setup al cierre y paso a las fases del acompañamiento.</p>
+        </div>
+      </div>
+
+      <h3>El argumento de autoridad, en 3 pasos</h3>
+      <table>
+        <thead><tr><th>Paso</th><th>Qué se le enseña a la clínica</th></tr></thead>
+        <tbody>
+          <tr><td class="label">1 · Mapeo del Grid</td><td>Búsquedas simuladas desde cada calle de su ciudad: un mapa lleno de puntos rojos donde no sale en Google Maps frente a sus competidores.</td></tr>
+          <tr><td class="label">2 · Vulnerabilidades</td><td>Qué hace mal su competencia: no atiende de noche, tiene malas reseñas, su web es lenta.</td></tr>
+          <tr><td class="label">3 · Contraataque</td><td>No se vende un rediseño web, sino la armadura para cubrir sus puntos ciegos y absorber las citas de fin de semana que pierde la competencia, con la demo de su sistema ya encarrilado.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Qué se usa en cada momento</h3>
+      <table>
+        <thead><tr><th>Momento</th><th>Material</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Prospección (setter)</td><td>Auditoría SEO Local (gancho A) o web plantilla + IA genérica (gancho B)</td></tr>
+          <tr><td class="label">Llamada de cierre (closer)</td><td>El Efecto Wow: la web y la IA ya montadas con la marca y los datos de la clínica, en un enlace privado</td></tr>
+        </tbody>
+      </table>
+      <div class="callout"><strong>Para medir qué funciona:</strong> anotar siempre en la ficha qué gancho se usó (A o B).</div>
+
+      <h3>El CSV de clínicas</h3>
+      <p>YDOIA envía las clínicas por lotes y por localidad (ejemplo recibido: Fuengirola, lote 001). Cada fila trae:</p>
+      <table>
+        <thead><tr><th>Columna</th><th>Qué es</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Nombre_Clinica · Categoria</td><td>Nombre y categoría en Google (Dentista, Clínica dental…)</td></tr>
+          <tr><td class="label">Telefono · Email</td><td>Datos de contacto. Si no los hay, pone "NO DISPONIBLE"</td></tr>
+          <tr><td class="label">Nota_Google · Numero_Resenas</td><td>Valoración media y número de reseñas</td></tr>
+          <tr><td class="label">Sitio_Web · Google_Maps_URL</td><td>Su web (o "NO DISPONIBLE" si no tiene) y su ficha de Google Maps</td></tr>
+          <tr><td class="label">Potencial_Web · Potencial_SEO · Potencial_IA</td><td>Nivel de oportunidad (ALTO, MEDIO o BAJO) para cada uno de los tres servicios</td></tr>
+        </tbody>
+      </table>
+      <div class="callout"><strong>Cómo priorizar (recomendación operativa):</strong> primero las clínicas con más columnas de potencial en ALTO. Antes de llamar, abrir su ficha de Google Maps y su web: las que no tienen web o tienen una antigua son candidatas al plan completo; las que tienen buena web pero potencial de IA alto encajan con la Secretaría de IA stand-alone.</div>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="chuleta">
+      <div class="section-tag">09 · Chuleta</div>
+      <h2>Chuleta de llamada</h2>
+      <p>Lo imprescindible en una pantalla, para tenerlo delante durante la llamada.</p>
+      <div class="cheat">
+        <div class="card"><div class="pill">Primer contacto</div><h4>Los 2 ganchos</h4><ul>
+          <li><strong>A · Auditoría SEO:</strong> solo con la auditoría real de esa clínica.</li>
+          <li><strong>B · Demo interactiva:</strong> lumina.ydoia.com, gratis y sin compromiso.</li>
+          <li>Objetivo: agendar 10&#8209;15 min con el dueño o director, con 24 h hábiles de margen.</li>
+          <li>Nunca dar precio en el primer contacto.</li></ul></div>
+        <div class="card"><div class="pill">Cualificación</div><h4>3 preguntas</h4><ul>
+          <li>¿Hablo con el dueño o director de la clínica?</li>
+          <li>¿Quién atiende cuando la clínica está cerrada?</li>
+          <li>¿Es una prioridad actualizar vuestra presencia en Google y en las IAs en los próximos meses?</li>
+          <li><strong>Descartar:</strong> franquicia sin decisión local o sin capacidad de inversión.</li></ul></div>
+        <div class="card"><div class="pill">Planes (setup)</div><h4>Oficial · promo · mantenimiento</h4><ul>
+          <li><strong>Starter:</strong> 790€ · 490€ · 97€/mes</li>
+          <li><strong>PRO:</strong> 1.490€ · 990€ · 197€/mes</li>
+          <li><strong>Authority:</strong> 3.890€ · 2.490€ · 297€/mes</li>
+          <li>Promo solo dentro del lote de 10 clínicas vigente.</li></ul></div>
+        <div class="card"><div class="pill">Objeciones top</div><h4>Respuesta corta</h4><ul>
+          <li><strong>"Es caro":</strong> calculadora con su ticket medio.</li>
+          <li><strong>"Ya tengo web":</strong> los pacientes escanean y las IAs necesitan datos estructurados.</li>
+          <li><strong>"Mi agencia ya me lo lleva":</strong> no hacemos publicidad; convertimos las visitas que os traen.</li>
+          <li><strong>"Me lo pienso":</strong> ¿qué punto no os ha encajado del todo?</li></ul></div>
+      </div>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="conversaciones">
+      <div class="section-tag">10 · Conversación</div>
+      <h2>Modelos de conversación</h2>
+      <p>Dos momentos: el primer contacto (setter) y la llamada de cierre (closer). En el primer contacto no se da precio ni se intenta cerrar. Siempre se presenta como YDOIA.</p>
+
+      <h3>Primer contacto (setter)</h3>
+      <details class="acc" open>
+        <summary>Gancho A · La herida / informe SEO</summary>
+        <div class="acc-body">
+          <p class="say">"Hola [Nombre]. Soy [Tu Nombre] de YDOIA. Hemos hecho un escaneo de posicionamiento local en [Ciudad] y hemos detectado puntos ciegos importantes de tu clínica en la zona norte frente a tus competidores. He sacado el mapa (el Grid) en un PDF rápido. ¿A qué email os lo mando para que veáis por qué calles estáis perdiendo pacientes?"</p>
+          <p class="subnote">Adaptar "zona norte" a la zona real que muestre el Grid de esa clínica.</p>
+          <div class="callout"><strong>Usar el gancho A solo si tienes la auditoría real de esa clínica.</strong> La zona y los puntos ciegos que menciones deben salir de su Grid. Si todavía no la tienes, entra con el gancho B.</div>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>Gancho B · Demo interactiva</summary>
+        <div class="acc-body">
+          <p class="say">"Hola [Nombre]. Soy [Tu Nombre] de YDOIA. Hemos estado analizando clínicas en [Ciudad] y hemos desarrollado un sistema con un Asistente IA que rescata pacientes 24/7 de forma automática. Tengo una Demo interactiva lista con el Asistente integrado para que probéis cómo interactúa con un paciente real. ¿A qué número o email os paso el enlace para que trasteéis con él gratis?"</p>
+          <p>Enlace a enviar: <a href="https://lumina.ydoia.com/" target="_blank" rel="noopener">lumina.ydoia.com</a> (demo general). La demo personalizada con su marca (Efecto Wow) se reserva para la llamada de cierre.</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>Cualificación</summary>
+        <div class="acc-body">
+          <p class="say">"Con los cambios recientes, Google AI y ChatGPT ya recomiendan clínicas cuando un paciente pregunta en su zona. ¿Es una prioridad para vosotros actualizar vuestra infraestructura en los próximos meses para no desaparecer de esas búsquedas?"</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>El pase de gol (agendar)</summary>
+        <div class="acc-body">
+          <p class="say">"No te robo más tiempo. Lo que os propongo es agendar una llamada rápida de 10&#8209;15 minutos. Os enseñamos los datos de vuestra ciudad y la Demo en directo. Si os encaja, genial. Si no, al menos os quedáis con el mapa de vuestra competencia y sabéis exactamente por dónde estáis perdiendo pacientes. ¿Te encaja mejor el martes o el jueves?"</p>
+          <p class="subnote">Proponer siempre fechas con al menos 24 horas hábiles de margen, para que YDOIA pueda preparar el Efecto Wow.</p>
+        </div>
+      </details>
+
+      <h3>Pasar recepción y seguimiento <span class="tag-rec">Recomendación operativa</span></h3>
+      <details class="acc">
+        <summary>Si contesta recepción</summary>
+        <div class="acc-body">
+          <p class="say">"Hola, soy [Tu Nombre] de YDOIA. Hemos preparado un análisis de cómo aparece la clínica en Google Maps y en las búsquedas con IA de vuestra zona, y me gustaría comentárselo al doctor o a la persona que lleva la dirección. ¿Cuándo es mejor momento para hablar con él o ella?"</p>
+          <p>Pedir nombre del decisor y franja horaria; si ofrecen un email, usar el que te den y anotarlo.</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>Después de enviar la auditoría o la demo</summary>
+        <div class="acc-body">
+          <p>Intentar agendar la llamada de cierre en el mismo contacto. Si no es posible, volver a llamar en 24&#8209;48 h para comentar lo que han visto. Si salta el buzón, no dejar un mensaje largo: reintentar en otra franja.</p>
+        </div>
+      </details>
+
+      <h3>Llamada de cierre (closer)</h3>
+      <details class="acc">
+        <summary>1 · Diagnóstico profundo (la herida)</summary>
+        <div class="acc-body">
+          <p class="say">"Además de pacientes nuevos, ¿qué es lo que más os frustra del día a día en recepción?"</p>
+          <p class="say">"Cuando un paciente os busca un sábado y acabáis de cerrar... ¿cuánto dinero en implantes u ortodoncia creéis que se os va a la franquicia 24h de la otra calle?"</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>2 · Presentación de la solución</summary>
+        <div class="acc-body">
+          <p class="say">"No venimos a haceros una web informativa. Os instalamos una arquitectura CRO basada en cómo el paciente escanea la pantalla. Optimizamos vuestro SEO Local (GBP) con datos estructurados para las IAs. Y metemos a nuestro Asistente IA a trabajar las 24 horas del día. Es el multiplicador de cualquier esfuerzo de marketing que hagáis."</p>
+          <p>Aquí va la demo con la marca de la clínica y la elección del plan que encaja con lo diagnosticado.</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>3 · Cierre consultivo (silencio)</summary>
+        <div class="acc-body">
+          <p class="say">"El Setup del ecosistema, que os deja todo listo, es una inversión de [Precio Exacto]€. Con rescatar a 3 o 4 pacientes al mes un viernes por la tarde gracias a la IA, el sistema se repaga de forma orgánica."</p>
+          <p>Dar el precio con total normalidad, hacer una pausa y escuchar su reacción.</p>
+        </div>
+      </details>
+
+      <h3>Reglas de oro</h3>
+      <details class="acc">
+        <summary>Control del marco (venta inversa)</summary>
+        <div class="acc-body">
+          <p>No se ruega por clientes: con el Grid, el Scraper y la IA se genera tanta autoridad que es YDOIA quien valora si la clínica tiene el nivel para ser su socio local.</p>
+          <p class="say">"Como te comenté, por la exclusividad técnica del ecosistema YDOIA, abrimos un máximo de 2 plazas por zona. Nuestra infraestructura está pensada para generar un volumen de demanda que desborde a una clínica no preparada. Por eso, antes de ofreceros la plaza, mi obligación es preguntarte: ¿tenéis capacidad real en gabinete y un equipo lo bastante sólido para absorber un aumento de solicitudes de cita sin que se resienta vuestra calidad?"</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>Escasez zonal</summary>
+        <div class="acc-body">
+          <p class="say">"Para centrar bien nuestros esfuerzos técnicos, evitamos trabajar a la vez con más de 2 clínicas por zona (midiendo el radio del mapa que sacamos en el Grid). Empezar a optimizar vuestra zona hoy os bloquea una de esas plazas y os da prioridad digital frente al vecino."</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>Viabilidad técnica</summary>
+        <div class="acc-body">
+          <p class="say">"Para conectar eso a tu programa específico, necesito elevar la consulta a nuestro equipo técnico. Si es viable, lo hacemos."</p>
+          <p>Las dudas técnicas y los add-ons a medida (idiomas, APIs, desarrollos) se escalan por el canal de Discord de YDOIA, donde responden sus técnicos o Diego, de YDOIA, directamente.</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>Gestión de expectativas (la autopista)</summary>
+        <div class="acc-body">
+          <p>Si piden garantías de facturación o de tratamientos cerrados:</p>
+          <p class="say">"Nuestro trabajo con el Ecosistema CRO y la Inteligencia Artificial es generar la demanda y que os lleguen pacientes cualificados solicitando cita. Nosotros os construimos una autopista de última generación directa a vuestra puerta, pero el coche lo tenéis que conducir vosotros. Si os traemos la cita pero la atención en recepción es mala o el doctor no transmite confianza en el presupuesto, el paciente se irá sin pagar. Nosotros generamos las oportunidades; vosotros cerráis los tratamientos."</p>
+        </div>
+      </details>
+      <div class="callout"><strong>Regla común:</strong> nunca presentar el producto antes de entender el problema real de la clínica, y nunca dar precio en el primer contacto.</div>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="objeciones">
+      <div class="section-tag">11 · Objeciones</div>
+      <h2>Manejo de objeciones</h2>
+      <p>Nunca chocar de frente. Validar su emoción y sacar la calculadora para hacer los números con ellos.</p>
+      <details class="acc">
+        <summary>1 · "Es muy caro"</summary>
+        <div class="acc-body">
+          <p class="say">"¿Cuánto cobra una recepcionista a jornada completa? Unos 1.400€/mes. ¿Y los fines de semana y noches están cubiertos?"</p>
+          <p class="say">"¿Cuántos pacientes nuevos creéis que se os escapan al mes porque nadie responde fuera del horario? Poned el número que os parezca..."</p>
+          <p class="say">"¿Cuánto os deja de media un paciente nuevo? Hagamos la cuenta juntos: el sistema os cuesta [coste del primer año] el primer año. Con vuestro ticket medio, eso son [X] pacientes al año, menos de [X/12] al mes. ¿Cuántos se os escapan ahora fuera de horario?"</p>
+          <p>Fórmula: <strong>coste del primer año del plan ÷ ticket medio de la clínica = pacientes al año que necesita recuperar.</strong> Se hace en directo con la <a href="#calculadora">calculadora</a>; el coste del primer año de cada plan está también en <a href="#inversion">Pagos y enlaces</a>. Usar siempre el ticket que dé la clínica; como referencia, YDOIA sitúa el tratamiento dental nuevo entre 500€ y 3.000€.</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>2 · "Ya tengo web y me funciona bien"</summary>
+        <div class="acc-body">
+          <p class="say">"Perfecto, y es completamente válido. Pero hoy los pacientes no leen webs: las escanean en segundos. Si la web no está adaptada a ese patrón, se van sin contactar, aunque el servicio sea excelente. Además, las IAs como ChatGPT necesitan una estructura de datos específica para incluirla en sus respuestas. Sin eso, si alguien le pregunta a la IA qué dentista le recomiendan en su ciudad... no apareces."</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>3 · "Mi agencia ya me lleva el marketing"</summary>
+        <div class="acc-body">
+          <p class="say">"Perfecto. Nosotros no hacemos publicidad (aunque está disponible como servicio independiente si lo necesitáis). Somos el Sistema de Captación Inteligente: la web que convierte y la IA que atiende. Si vuestra agencia trae visitas, nosotros las convertimos en pacientes. Es el equipo comercial disponible 24h que nunca se pone malo, nunca pide vacaciones y responde en segundos."</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>4 · "No tengo tiempo para meterme en otro proyecto"</summary>
+        <div class="acc-body">
+          <p class="say">"Te entiendo perfectamente. Justamente por eso os conviene: nosotros hacemos todo. Solo nos mandáis el material de la clínica (textos, logo, fotos, accesos y los datos para la IA) y en 10 días hábiles lo tenéis funcionando. Sin reuniones largas ni tecnicismos. Y en PRO y Authority recibís un informe mensual para estar al tanto sin tener que preguntar."</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>5 · "Déjame pensarlo" / "Lo hablo con mi socio"</summary>
+        <div class="acc-body">
+          <p class="say">"Claro que sí, es una decisión importante. Por mi experiencia, el 'tengo que pensarlo' es porque hay una duda técnica o de rentabilidad sin resolver. Con total confianza, ¿qué punto no os ha encajado del todo?"</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>6 · "Tenemos suficientes pacientes"</summary>
+        <div class="acc-body">
+          <p class="say">"¡Enhorabuena! Pocas clínicas lo logran. Si el volumen no es problema, mejoremos la calidad. Con el Asistente IA podemos filtrar los casos menores y enfocar la captación a pacientes de alto ticket (estética, implantes). Menos carga y más rentabilidad."</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>7 · "No me fío de la IA, sonará muy robótico"</summary>
+        <div class="acc-body">
+          <p class="say">"Es un miedo muy lógico. Los antiguos bots eran horribles. Nuestra IA está entrenada con psicología humana: responde con paciencia, resuelve las dudas frecuentes sobre tratamientos y horarios y agenda la cita; no diagnostica. Por eso quiero que trastees con la Demo y trates de volverla loca."</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>8 · "¿Y si esto no funciona en mi ciudad?"</summary>
+        <div class="acc-body">
+          <p class="say">"El SEO Local es incluso más potente en municipios pequeños, porque la competencia suele estar muy desactualizada. Al optimizar tu ficha de Google Maps suele ser más fácil ganar visibilidad."</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>9 · "Envíame la info por email"</summary>
+        <div class="acc-body">
+          <p class="say">"Claro, te mando la demo ahora mismo. Pero para enviarte el caso de uso que te sirva: ¿vuestro problema es falta de visibilidad en Google Maps o saturación en recepción al teléfono?"</p>
+        </div>
+      </details>
+      <h3>Objeciones típicas de la llamada en frío <span class="tag-rec">Recomendación operativa</span></h3>
+      <details class="acc">
+        <summary>10 · "¿De dónde habéis sacado mi número?"</summary>
+        <div class="acc-body">
+          <p class="say">"De vuestra ficha pública de Google, donde analizamos las clínicas de la zona. Si preferís que no os volvamos a llamar, lo anoto ahora mismo y no os molestamos más."</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>11 · "No me interesa" / "Estoy ocupado"</summary>
+        <div class="acc-body">
+          <p class="say">"Lo entiendo, os pillo en plena consulta. Solo una pregunta: ¿quién atiende a los pacientes que escriben cuando la clínica está cerrada? Si os encaja, os mando la demo y lo vemos otro día con calma."</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>12 · "Ya tengo chatbot / WhatsApp automático"</summary>
+        <div class="acc-body">
+          <p class="say">"Perfecto, entonces ya sabéis lo que vale atender fuera de horario. ¿Os agenda la cita directamente en vuestra agenda o solo responde? Probad la demo y comparad cómo atiende a un paciente real."</p>
+        </div>
+      </details>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="faq">
+      <div class="section-tag">12 · Preguntas</div>
+      <h2>Preguntas frecuentes de la clínica</h2>
+      <p>Respuestas confirmadas por YDOIA. Lo marcado como pendiente no se afirma: se anota, se consulta con YDOIA y se confirma por escrito.</p>
+      <table>
+        <thead><tr><th>Pregunta</th><th>Respuesta</th></tr></thead>
+        <tbody>
+          <tr><td class="label">¿Cuánto tardáis en tenerlo?</td><td>10 días hábiles desde que la clínica envía el material completo</td></tr>
+          <tr><td class="label">¿Qué material tengo que mandar?</td><td>Textos, logo, fotos, accesos y los datos para la IA. Llega un formulario de onboarding con el paquete de bienvenida</td></tr>
+          <tr><td class="label">¿Hay permanencia?</td><td>No. El mantenimiento no tiene permanencia: si se cancela, se suspende el servicio</td></tr>
+          <tr><td class="label">¿Qué cubre el mantenimiento?</td><td>Servidor, hosting, consumo de IA, horas de mantenimiento, revisiones técnicas, actualizaciones e informes de rendimiento (informe mensual en PRO y Authority)</td></tr>
+          <tr><td class="label">¿Se devuelve el setup?</td><td>No, una vez iniciado el proyecto</td></tr>
+          <tr><td class="label">¿Puedo pagar a plazos?</td><td>Sí: el setup se puede pagar en 2 o 3 pagos, o financiar con seQura. También por transferencia</td></tr>
+          <tr><td class="label">¿Me dais factura?</td><td>Sí, la factura llega con el paquete de bienvenida</td></tr>
+          <tr><td class="label">¿Incluye anuncios en Google o Meta?</td><td>No. El setup de Ads se cotiza aparte: 400€ y un 15% mensual de gestión</td></tr>
+          <tr><td class="label">¿Funciona en otro idioma?</td><td>Segundo idioma completo: +40% del setup del plan, con validación técnica previa</td></tr>
+          <tr><td class="label">¿Se conecta con mi software dental?</td><td>Integración API de 1.200€ a 2.500€, con validación técnica previa</td></tr>
+          <tr><td class="label">¿El Asistente IA diagnostica?</td><td>No. Resuelve las dudas frecuentes sobre tratamientos y horarios y agenda la cita</td></tr>
+          <tr><td class="label">¿Starter lleva el Asistente IA?</td><td>No. El Asistente IA con reservador de citas va en PRO y Authority, o por separado con la Secretaría de IA 24/7</td></tr>
+          <tr><td class="label">¿El precio lleva IVA?</td><td><span class="pend">Pendiente de confirmar por YDOIA</span></td></tr>
+          <tr><td class="label">¿Qué pasa con los datos de mis pacientes?</td><td><span class="pend">Pendiente de confirmar por YDOIA (RGPD)</span></td></tr>
+          <tr><td class="label">¿De quién es la web y el dominio si cancelo?</td><td><span class="pend">Pendiente de confirmar por YDOIA</span></td></tr>
+          <tr><td class="label">¿Con qué agendas es compatible el reservador?</td><td><span class="pend">Pendiente de confirmar por YDOIA</span></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="limites">
+      <div class="section-tag">13 · Límites</div>
+      <h2>Qué no prometer nunca</h2>
+      <div class="dodont">
+        <div class="box do">
+          <h4>Se puede decir</h4>
+          <ul>
+            <li>El mapa del Grid y la demo son gratuitos y sin compromiso</li>
+            <li>El sistema se construye con la información y la marca de la clínica</li>
+            <li>Está funcionando en 10 días hábiles desde que llega el material</li>
+            <li>El mantenimiento no tiene permanencia</li>
+            <li>Una integración compleja se consulta antes con el equipo técnico</li>
+          </ul>
+        </div>
+        <div class="box dont">
+          <h4>Nunca prometer</h4>
+          <ul>
+            <li>Un número concreto de pacientes, citas o tratamientos cerrados</li>
+            <li>La primera posición en Google o en ChatGPT</li>
+            <li>Que hay otras clínicas de la zona "en valoración" si no es verdad en ese momento</li>
+            <li>Meta Ads o Google Ads dentro de un plan (se cotizan aparte)</li>
+            <li>Reembolso del Setup una vez iniciado el proyecto</li>
+            <li>El precio promo fuera del cupo vigente (lotes de 10 clínicas)</li>
+            <li>Las proyecciones (300% de conversión, no-shows del 40% al 10%) como garantía o como resultado de una clínica concreta</li>
+            <li>Add-ons avanzados (idioma, integraciones, desarrollos) sin validación técnica</li>
+          </ul>
+        </div>
+      </div>
+      <p class="subnote">Los documentos originales de YDOIA mencionan cifras como "20 o 30 solicitudes de cita al mes" y un número concreto de clínicas en valoración. Aquí se han dejado sin cifra, porque presentadas como compromiso pueden leerse como garantía de resultado o como urgencia inventada.</p>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="inversion">
+      <div class="section-tag">14 · Pagos</div>
+      <h2>Inversión y enlaces de pago</h2>
+
+      <div class="paybox">
+        <h3>Precio oficial</h3>
+        <div class="pay-grid">
+          <div class="pay-card"><div class="plan">Starter, setup</div><div class="amount">790€</div><div class="detail">Mantenimiento 97€/mes</div><a class="link" href="https://link.fastpaydirect.com/payment-link/6abc0771694b1c53da8ce4ca" target="_blank" rel="noopener">Enlace de pago</a></div>
+          <div class="pay-card"><div class="plan">PRO, setup</div><div class="amount">1.490€</div><div class="detail">Mantenimiento 197€/mes</div><a class="link" href="https://link.fastpaydirect.com/payment-link/6abc0974c0e70c7fefb714f2" target="_blank" rel="noopener">Enlace de pago</a></div>
+          <div class="pay-card"><div class="plan">Authority, setup</div><div class="amount">3.890€</div><div class="detail">Mantenimiento 297€/mes</div><a class="link" href="https://link.fastpaydirect.com/payment-link/6abc0b2dc0e70c7fefb71505" target="_blank" rel="noopener">Enlace de pago</a></div>
+        </div>
+      </div>
+
+      <div class="paybox">
+        <h3>Precio promo</h3>
+        <p style="color:var(--ink-dim); font-size:.88rem; margin:6px 0 0;">YDOIA trabaja por <strong style="color:var(--gold-soft);">lotes de 10 clínicas</strong> a precio de oferta. Cuando se cierra ese cupo de 10, se acaba el promo y se pasa al precio oficial, sin negociación, porque más carga obliga a contratar más equipo técnico.</p>
+        <div class="pay-grid">
+          <div class="pay-card"><div class="plan">Starter, setup</div><div class="amount">490€</div><div class="detail">Solo dentro del lote promo</div><a class="link" href="https://link.fastpaydirect.com/payment-link/6abeb51a075ea22a20cdba7d" target="_blank" rel="noopener">Enlace de pago</a></div>
+          <div class="pay-card"><div class="plan">PRO, setup</div><div class="amount">990€</div><div class="detail">Solo dentro del lote promo</div><a class="link" href="https://link.fastpaydirect.com/payment-link/6abeb55d075ea22a20cdba7e" target="_blank" rel="noopener">Enlace de pago</a></div>
+          <div class="pay-card"><div class="plan">Authority, setup</div><div class="amount">2.490€</div><div class="detail">Solo dentro del lote promo</div><a class="link" href="https://link.fastpaydirect.com/payment-link/6abeb575c0e70c7fefb71dec" target="_blank" rel="noopener">Enlace de pago</a></div>
+        </div>
+      </div>
+
+      <h3>Coste del primer año (Setup + 12 meses de mantenimiento)</h3>
+      <table>
+        <thead><tr><th>Plan</th><th>Precio oficial</th><th>Precio promo</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Starter</td><td>1.954€</td><td>1.654€</td></tr>
+          <tr><td class="label">PRO</td><td>3.854€</td><td>3.354€</td></tr>
+          <tr><td class="label">Authority</td><td>7.454€</td><td>6.054€</td></tr>
+        </tbody>
+      </table>
+      <p class="subnote">Calculado con los precios del catálogo; IVA pendiente de confirmar. Es la cifra que se usa en la calculadora de la objeción "Es muy caro".</p>
+
+      <table>
+        <tbody>
+          <tr><td class="label">Momento del pago</td><td>El Setup se paga al cierre de la llamada</td></tr>
+          <tr><td class="label">Formas de pago</td><td>Enlace de Stripe (tarjeta), financiación con seQura o transferencia bancaria directa</td></tr>
+          <tr><td class="label">Fraccionamiento</td><td>El Setup se puede ofrecer en 2 o 3 pagos. Si la clínica prefiere financiar sin fraccionar con YDOIA, se usa seQura</td></tr>
+          <tr><td class="label">Enlaces</td><td>Los enlaces son de <em>link.fastpaydirect.com</em>, la pasarela de pago de YDOIA (con Stripe). Avisar a la clínica para que no le extrañe el dominio</td></tr>
+          <tr><td class="label">IVA</td><td>Pendiente de confirmar con YDOIA si los precios son con o sin IVA. Importante: las clínicas dentales no pueden deducirse el IVA</td></tr>
+          <tr><td class="label">Mantenimiento</td><td>Pendiente de confirmar con YDOIA desde cuándo se cobra, con qué enlace y si en promo es el mismo importe</td></tr>
+          <tr><td class="label">Cancelación</td><td>El Setup no tiene reembolso una vez iniciado el proyecto; el mantenimiento se cancela cuando se quiera y eso suspende el servicio</td></tr>
+          <tr><td class="label">Add-ons y stand-alone</td><td>De momento con enlaces estáticos: si hace falta uno concreto, se pide a YDOIA en el momento. La pasarela dinámica para combinar plan y extras en la llamada está en preparación</td></tr>
+        </tbody>
+      </table>
+      <div class="callout"><strong>Antes de mandar un enlace promo:</strong> confirmar con YDOIA cuántas plazas quedan del lote vigente. Decir solo lo que sea verdad en ese momento ("quedan X plazas de este lote"), nunca inventar urgencia.</div>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="recursos">
+      <div class="section-tag">15 · Recursos</div>
+      <h2>Recursos para la venta</h2>
+      <div class="pay-grid">
+        <div class="pay-card">
+          <div class="plan">Guía de ventas interactiva</div>
+          <div class="amount">Guiones y fichas</div>
+          <a class="link" href="https://dmartinezvhune-create.github.io/Proyecto-YDOIA/guia.html" target="_blank" rel="noopener">Abrir la guía de ventas</a>
+        </div>
+        <div class="pay-card">
+          <div class="plan">Demo general (setters)</div>
+          <div class="amount">Web CRO + IA</div>
+          <a class="link" href="https://lumina.ydoia.com/" target="_blank" rel="noopener">lumina.ydoia.com</a>
+        </div>
+        <div class="pay-card">
+          <div class="plan">Demo del Asistente IA</div>
+          <div class="amount">Solo el asistente</div>
+          <a class="link" href="https://dental.ydoia.com/asistente-ia/demo" target="_blank" rel="noopener">dental.ydoia.com/asistente-ia/demo</a>
+        </div>
+        <div class="pay-card">
+          <div class="plan">Auditoría SEO Local</div>
+          <div class="amount">Ejemplo dental (PDF)</div>
+          <a class="link" href="https://dmartinezvhune-create.github.io/Proyecto-YDOIA/auditoria-seo-dental-ejemplo.pdf" target="_blank" rel="noopener">Ver el ejemplo</a>
+        </div>
+        <div class="pay-card">
+          <div class="plan">Enlaces de pago</div>
+          <div class="amount">6 enlaces estáticos</div>
+          <a class="link" href="#inversion">Ver Pagos y enlaces</a>
+        </div>
+        <div class="pay-card">
+          <div class="plan">Calculadora</div>
+          <div class="amount">Pacientes que cubren el sistema</div>
+          <a class="link" href="#calculadora">Abrir la calculadora</a>
+        </div>
+        <div class="pay-card">
+          <div class="plan">Web de YDOIA</div>
+          <div class="amount">ydoia.com</div>
+          <a class="link" href="https://ydoia.com" target="_blank" rel="noopener">ydoia.com</a>
+        </div>
+        <div class="pay-card">
+          <div class="plan">Formulario del Efecto Wow</div>
+          <div class="amount">Petición de la preview</div>
+          <span class="detail pend">Enlace pendiente de que YDOIA lo comparta</span>
+        </div>
+        <div class="pay-card">
+          <div class="plan">Canal técnico (Discord)</div>
+          <div class="amount">Dudas y add-ons a medida</div>
+          <span class="detail pend">Enlace pendiente de que YDOIA lo abra</span>
+        </div>
+        <div class="pay-card">
+          <div class="plan">Pasarela dinámica de add-ons</div>
+          <div class="amount">Plan + extras al vuelo</div>
+          <span class="detail pend">En preparación por YDOIA</span>
+        </div>
+        <div class="pay-card">
+          <div class="plan">Grabaciones de llamadas</div>
+          <div class="amount">Formación</div>
+          <span class="detail pend">Se compartirán cuando las haya</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="seguimiento">
+      <div class="section-tag">16 · Seguimiento</div>
+      <h2>Seguimiento de prospectos</h2>
+      <p>Qué hacer cuando la clínica no contesta, pide que la llamen en otro momento o no decide después de la llamada de cierre. Por teléfono; WhatsApp o email solo al número o la dirección que la clínica haya dado para eso.</p>
+      <h3>Primer contacto sin respuesta</h3>
+      <p>Tres intentos como máximo; después, la clínica pasa a «Sin respuesta».</p>
+      <div class="phase"><div class="num active">1</div><div class="phase-body"><h4>Día 1</h4><p>Llamada. Si no contesta, reintento en otra franja ese mismo día: a primera hora, al mediodía o a última hora. Si salta el buzón, sin mensajes largos.</p></div></div>
+      <div class="phase"><div class="num active">2</div><div class="phase-body"><h4>Día 3 · Segundo intento</h4><p>Nueva llamada en una franja distinta.</p></div></div>
+      <div class="phase"><div class="num active">3</div><div class="phase-body"><h4>Día 7 · Último intento</h4><p>Última llamada. Si no hay respuesta, pasa a «Sin respuesta».</p></div></div>
+      <h3>Después de enviar la auditoría o la demo</h3>
+      <table>
+        <thead><tr><th>Momento</th><th>Qué hacer</th></tr></thead>
+        <tbody>
+          <tr><td class="label">En el mismo contacto</td><td>Intentar agendar ya la llamada de cierre de 10-15 minutos</td></tr>
+          <tr><td class="label">24-48 horas</td><td>Llamada para comentar lo que ha visto y agendar</td></tr>
+          <tr><td class="label">Agendada</td><td>Confirmación al momento, Efecto Wow pedido a YDOIA en el día y recordatorio el día anterior</td></tr>
+        </tbody>
+      </table>
+      <h3>Después de la llamada de cierre sin decisión</h3>
+      <table>
+        <thead><tr><th>Momento</th><th>Mensaje</th></tr></thead>
+        <tbody>
+          <tr><td class="label">El mismo día o al siguiente</td><td>Retomar el punto que no le encajó (precio, socio, confianza en la IA) y proponer día y hora</td></tr>
+          <tr><td class="label">A los 2-3 días</td><td>Recordar la cuenta hecha con sus números o volver a enviar la demo del asistente</td></tr>
+          <tr><td class="label">Una semana después</td><td>Último mensaje, sin presión. La preview sigue preparada</td></tr>
+        </tbody>
+      </table>
+      <div class="callout"><strong>Si pide que le llamen en otro momento:</strong> fijar día y hora concretos en ese momento, anotarlo y llamar exactamente entonces. La guía de ventas tiene los mensajes de cada caso listos para copiar.</div>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="kpis">
+      <div class="section-tag">17 · Métricas</div>
+      <h2>Métricas y estados</h2>
+      <p>Lo que se registra cada día en la guía de ventas. Cada semana se envía a YDOIA el reporte con todas las gestiones. Los objetivos se fijan al terminar la primera semana, con datos reales.</p>
+      <table>
+        <thead><tr><th>Métrica</th><th>Qué se cuenta</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Clínicas trabajadas</td><td>Clínicas del CSV con al menos un intento de contacto</td></tr>
+          <tr><td class="label">Llamadas</td><td>Llamadas hechas, por día, semana y franja horaria</td></tr>
+          <tr><td class="label">Conversaciones con el decisor</td><td>Conversaciones reales con el dueño o director</td></tr>
+          <tr><td class="label">Llamadas de cierre agendadas</td><td>Agendas con fecha y hora, por gancho (A o B)</td></tr>
+          <tr><td class="label">Efecto Wow a tiempo</td><td>Previews pedidas con al menos 24 horas hábiles de margen</td></tr>
+          <tr><td class="label">Cierres</td><td>Clínicas que aceptan y pagan el setup («Cerrado/Pagado»)</td></tr>
+          <tr><td class="label">Setup y mantenimiento cerrados</td><td>Importe de setup y suma de mantenimientos, por plan</td></tr>
+          <tr><td class="label">Objeciones</td><td>Las más frecuentes en las conversaciones que no cierran</td></tr>
+          <tr><td class="label">Descartes y pérdidas</td><td>Clínicas descartadas o perdidas, y por qué</td></tr>
+          <tr><td class="label">No contactar</td><td>Clínicas que han pedido no ser contactadas</td></tr>
+        </tbody>
+      </table>
+      <h3>Test A/B de ganchos</h3>
+      <p>YDOIA está validando cuál es la mejor puerta de entrada. Por eso, en cada clínica se anota el gancho usado (A: auditoría / B: demo) y el informe semanal compara cuál agenda más llamadas de cierre y cuál termina en más cierres.</p>
+      <h3>Estados de cada clínica</h3>
+      <table>
+        <thead><tr><th>Estado</th><th>Cuándo</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Sin contactar</td><td>Llegada en el CSV, todavía sin llamar</td></tr>
+          <tr><td class="label">No contesta</td><td>Intento hecho sin respuesta (hasta 3)</td></tr>
+          <tr><td class="label">Contactado</td><td>Se ha hablado con la clínica, aún no con quien decide</td></tr>
+          <tr><td class="label">Conversación con decisor</td><td>Se ha hablado con el dueño o director</td></tr>
+          <tr><td class="label">Volver a llamar</td><td>Ha pedido otro momento, con día y hora</td></tr>
+          <tr><td class="label">Llamada de cierre agendada</td><td>Fecha y hora fijadas; Efecto Wow pedido</td></tr>
+          <tr><td class="label">Seguimiento</td><td>Ha visto la propuesta y está pendiente de decidir</td></tr>
+          <tr><td class="label">Cerrado, pendiente de pago</td><td>Ha aceptado; falta completar el pago</td></tr>
+          <tr><td class="label">Ganado (Cerrado/Pagado)</td><td>Setup pagado. Se avisa a YDOIA para el paquete de bienvenida</td></tr>
+          <tr><td class="label">Perdido</td><td>No le encaja. Anotar el motivo</td></tr>
+          <tr><td class="label">Descartado</td><td>No cumple el perfil (franquicia sin decisión, sin presupuesto…). Anotar el motivo</td></tr>
+          <tr><td class="label">Sin respuesta</td><td>Tres intentos sin contestar</td></tr>
+          <tr><td class="label">No contactar</td><td>Ha pedido no ser contactada. No se vuelve a llamar</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="proceso-closer">
+      <div class="section-tag">18 · Procedimiento</div>
+      <h2>Procedimiento del Closer</h2>
+      <div class="phase">
+        <div class="num active">1</div>
+        <div class="phase-body"><h4>Preparar la clínica antes de contactar</h4><p>Revisar su ficha del CSV y su posición en Google Maps; comprobar que no es una franquicia sin decisión local.</p></div>
+      </div>
+      <div class="phase">
+        <div class="num active">2</div>
+        <div class="phase-body"><h4>Primer contacto y agenda</h4><p>Entrar con el gancho asignado, cualificar y cerrar día y hora para la llamada de 10&#8209;15 minutos con el dueño o director.</p></div>
+      </div>
+      <div class="phase">
+        <div class="num active">3</div>
+        <div class="phase-body"><h4>Pedir el Efecto Wow y hacer la llamada de cierre</h4><p>En cuanto la clínica está cualificada y agendada, pedir a YDOIA su preview con al menos 24 horas hábiles de antelación, por el formulario interno (nombre y web de la clínica). En la llamada: diagnóstico, preview en directo, plan que encaja con lo diagnosticado, precio y silencio.</p></div>
+      </div>
+      <div class="phase">
+        <div class="num active">4</div>
+        <div class="phase-body"><h4>Cobro y paso a "Cerrado/Pagado"</h4><p>Enlace de pago del plan (oficial o promo según el cupo), marcar la clínica como "Cerrado/Pagado" y explicarle que le llegará el paquete de bienvenida con el formulario de onboarding, y que el plazo de 10 días hábiles cuenta desde que envíe el material.</p></div>
+      </div>
+
+      <div class="callout"><strong>Protección de datos en la prospección en frío</strong> <span class="tag-rec">Recomendación operativa</span><br>
+        Decir siempre de dónde sale el dato (su ficha pública de Google). Si piden no ser contactados, anotarlo y no volver a llamar. No enviar emails comerciales a las direcciones del CSV sin que la clínica lo haya pedido: el email se pide por teléfono, como en los dos ganchos. Ante cualquier duda, consultar antes de actuar.</div>
+
+      <h3>Antes de colgar cada conversación</h3>
+      <ul class="checklist">
+        <li><span class="box"></span> Me presenté como YDOIA</li>
+        <li><span class="box"></span> Hablé con el dueño o director (o estará en la llamada)</li>
+        <li><span class="box"></span> No di precio en el primer contacto</li>
+        <li><span class="box"></span> Fijé día y hora concretos</li>
+        <li><span class="box"></span> Anoté qué gancho usé (A o B)</li>
+        <li><span class="box"></span> Registré el resultado el mismo día</li>
+      </ul>
+
+      </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="anexo">
+      <div class="section-tag">19 · Anexo</div>
+      <h2>Información original de YDOIA</h2>
+      <p>Contenido de los documentos que envió YDOIA Agency (guía de producto, playbook de ventas y entregables), organizado por bloques, para consultar la fuente de cualquier dato del informe.</p>
+      <div class="callout"><strong>Nota:</strong> es el texto original. Algunas cifras se han matizado en el informe (por ejemplo, "con 3 pacientes se cubre el año", "20 o 30 solicitudes al mes" o "4 clínicas en valoración") para no presentarlas como garantía ni como urgencia: ver Límites y qué no prometer. YDOIA ha confirmado que las cifras de Madrid y Málaga son proyecciones del sector, no casos auditados.</div>
+      <details class="acc">
+        <summary>1 · Productos y precios</summary>
+        <div class="acc-body">
+          <table><thead><tr><th>Plan</th><th>Incluye</th><th>Setup oficial / promo</th><th>Mantenimiento</th></tr></thead><tbody><tr><td>Starter</td><td>Web Profesional CRO · SEO Local Básico (incl. Google Business Profile) · Soporte</td><td>790€ / 490€</td><td>97€/mes</td></tr><tr><td>PRO</td><td>Web Profesional CRO · 1 landing page (campaña o servicio específico) · SEO Local Básico (incl. GBP) · Asistente IA integrado y reservador de citas · Soporte · Informe mensual de rendimiento</td><td>1.490€ / 990€</td><td>197€/mes</td></tr><tr><td>Authority</td><td>Web Profesional CRO · 3 landing pages · SEO Local Avanzado (incl. GBP) · Asistente IA integrado y reservador de citas · 1 automatización a elegir (seguimiento, recordatorios, reactivación de pacientes, etc.) · Soporte prioritario · Informe mensual de rendimiento avanzado</td><td>3.890€ / 2.490€</td><td>297€/mes</td></tr></tbody></table>
+          <p>Todos los servicios se basan en un único pago inicial (Setup) y un mantenimiento recurrente mensual sin permanencia, que cubre servidor, hosting, consumo de IA, horas de mantenimiento, revisiones técnicas, actualizaciones e informes de rendimiento. Meta Ads o Google Ads están disponibles como servicio independiente, no incluido en los packs.</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>2 · Add-ons y stand-alone</summary>
+        <div class="acc-body">
+          <table><thead><tr><th>Servicio</th><th>Precio</th></tr></thead><tbody><tr><td>Secretaría de IA 24/7 (stand-alone, sin tocar su web)</td><td>Promo 490€ (oficial 750€) + 127€/mes</td></tr><tr><td>Auditoría técnica y setup SEO (stand-alone)</td><td>Promo 250€ (oficial 390€), pago único</td></tr><tr><td>Landing page extra (implantes, ortodoncia…)</td><td>290€</td></tr><tr><td>Setup de campañas Google/Meta Ads</td><td>400€ + 15%/mes de gestión</td></tr><tr><td>Segundo idioma completo (requiere validación técnica)</td><td>+40% del setup original</td></tr><tr><td>Integración API con su software dental (requiere validación)</td><td>1.200€ – 2.500€</td></tr><tr><td>Automatizaciones o flujos a medida (requiere validación)</td><td>Desde 200€ por flujo</td></tr><tr><td>Horas de desarrollo custom (requiere validación)</td><td>90€/hora</td></tr></tbody></table>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>3 · Qué es una Web Profesional CRO</summary>
+        <div class="acc-body">
+          <p>No es una web "bonita" ni un escaparate digital. Es una arquitectura web construida sobre más de 50 estudios de comportamiento humano, modelos predictivos, eye‑tracking, mapas de calor y psicología de la persuasión. Cada bloque, jerarquía visual y llamada a la acción está colocada para que el visitante haga una sola cosa: contactar o reservar cita.</p>
+          <p>Hoy los pacientes no leen: escanean. El consumo de redes sociales ha entrenado al cerebro para la lectura rápida y vertical. Si la web no está adaptada a ese patrón, el visitante se va sin convertir, aunque el servicio sea excelente. Además, las IAs (ChatGPT, Gemini, Perplexity) leen la información de forma distinta a un buscador clásico: si la web no está construida "en su idioma", no entienden la clínica con la confianza suficiente para recomendarla. En una respuesta generada por IA, o eres la recomendación principal, o no existes: no hay página 2.</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>4 · Puerta de entrada (en validación)</summary>
+        <div class="acc-body">
+          <p>Para el nicho dental, YDOIA está validando la mejor secuencia de entrada:</p>
+          <ul><li>Entregar primero la Auditoría SEO Local y después mostrar la demo en llamada.</li><li>Mostrar la demo primero para generar el Efecto Wow y entregar el informe en la propia llamada.</li><li>Dar ambos desde el primer contacto.</li><li>Reservar todo para la llamada y llegar con la propuesta ya construida.</li></ul>
+          <p>El Kit GEO / Test de Visibilidad no es el lead magnet de esta línea: pertenece a otra línea de negocio de YDOIA.</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>5 · Cliente, dolores y descartes</summary>
+        <div class="acc-body">
+          <p>Decide el dueño o director de la clínica dental. Foco actual: clínicas dentales; escalable a otros negocios de salud y servicios (fisioterapia, estética, psicología, podología, abogados…).</p>
+          <ul><li>"Tenemos la agenda llena de lunes a viernes, pero en cuanto cierra la clínica nadie coge el teléfono, y el lunes ya nos cuesta localizarlos o ya han pedido cita en otra clínica."</li><li>"Pagamos cada mes a una agencia de marketing y no sé exactamente qué me están haciendo ni si funciona."</li><li>"Mi web la montó un sobrino hace tres años. Sé que está mal, pero meterme en otro proyecto de web me da pereza."</li><li>"Una recepcionista se pone mala, se va de vacaciones o dimite, y nos quedamos vendidos."</li><li>"Busco mi clínica en Google y aparezco en cuarta posición. Por delante tengo a una clínica de franquicia y a dos que llevan menos tiempo que yo."</li><li>"Un paciente me dijo que le preguntó a ChatGPT qué clínica dental le recomendaban en su barrio y no salí."</li></ul>
+          <p>Además del tráfico directo a ChatGPT o Perplexity (que crece un 42,8% interanual según YDOIA), Google ya está introduciendo resúmenes generados por IA (AI Overviews) en las búsquedas locales.</p>
+          <p>Descarte: clínica de un único profesional sin estructura ni equipo (aunque puede ser viable según el caso); sin capacidad económica para invertir; franquicia corporativa donde el director local no decide ni tiene acceso al titular.</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>6 · Identidad, diferencial y sistema en 3 pasos</summary>
+        <div class="acc-body">
+          <p>YDOIA nace de la creación de sistemas automatizados e IA en el sector de la educación. No es una agencia de marketing tradicional: son ingenieros de conversión que conectan inteligencia de mercado local, arquitectura CRO y asistentes de IA.</p>
+          <p>Ventaja injusta: antes de contactar, el YDOIA Scraper (herramienta propia de rastreo de entidades de negocio geolocalizadas y nodos de posicionamiento) rastrea la ciudad y mapea qué hace la competencia y dónde están sus puntos ciegos. Con esos datos se aplica el Framework CRO Dental.</p>
+          <p>Sistema en 3 pasos: 1) Mapeo del Grid: búsquedas simuladas desde cada calle; 2) Extracción de vulnerabilidades de la competencia; 3) Contraataque: diseño CRO + IA y la demo (Efecto Wow) del sistema ya encarrilado.</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>7 · Los ganchos, la cualificación y el cierre (playbook)</summary>
+        <div class="acc-body">
+          <p>Gancho A (la herida / informe SEO): escaneo de posicionamiento local con puntos ciegos frente a los competidores y el mapa del Grid en PDF.</p>
+          <p>Gancho B (Efecto Wow / demo CRO): demo interactiva con el Asistente IA para que la clínica la pruebe gratis.</p>
+          <p>Cualificación: "Con los cambios recientes, Google AI y ChatGPT ya responden las dudas médicas locales. ¿Es una prioridad para vosotros actualizar vuestra infraestructura en los próximos meses?"</p>
+          <p>Pase de gol: llamada de 10-15 minutos con los datos de su ciudad y la demo en directo.</p>
+          <p>Closer: diagnóstico profundo (frustraciones de recepción, pacientes perdidos en fin de semana), presentación de la solución (arquitectura CRO, SEO local con datos estructurados, Asistente IA 24/7) y cierre consultivo: precio con normalidad y silencio.</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>8 · Objeciones originales</summary>
+        <div class="acc-body">
+          <p>El documento de producto incluye cuatro objeciones (ya tengo web, es muy caro, mi agencia ya me lleva el marketing, no tengo tiempo) y el playbook amplía a nueve (añade: déjame pensarlo / mi socio, tenemos suficientes pacientes, no me fío de la IA, ¿y si no funciona en mi ciudad?, envíame la info por email). Las respuestas están en Manejo de objeciones, con la calculadora corregida para usar el ticket y el coste del primer año de cada clínica.</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>9 · Reglas de oro del playbook</summary>
+        <div class="acc-body">
+          <ul><li>Escasez zonal: máximo 2 clínicas por localidad, medida por el radio del Grid.</li><li>Viabilidad técnica: nunca prometer sin saber; lo complejo se eleva al equipo técnico.</li><li>Control del marco (venta inversa): YDOIA evalúa si la clínica tiene el nivel para ser su socio local.</li><li>Gestión de expectativas (la autopista): YDOIA genera las oportunidades; la clínica cierra los tratamientos.</li></ul>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>10 · Pagos, promo y enlaces</summary>
+        <div class="acc-body">
+          <p>Pago del Setup al cierre de la llamada por pasarela online (Stripe / tarjeta) o transferencia bancaria directa; se puede fraccionar en 2 o 3 pagos o financiar con seQura. El Setup no tiene reembolso una vez iniciado el proyecto; el mantenimiento se puede cancelar en cualquier momento, lo que suspende el servicio.</p>
+          <p>Promo: YDOIA trabaja por lotes de 10 clínicas al precio de oferta. Cerrado ese cupo, se pasa al precio oficial, innegociable, porque más carga obliga a contratar más equipo técnico.</p>
+          <p>Enlaces: seis enlaces estáticos (oficial y promo de cada plan) en link.fastpaydirect.com. El enlace abierto para add-ons está en preparación (un checkout visual para generar enlaces al vuelo).</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>11 · Efecto Wow, auditoría y operativa</summary>
+        <div class="acc-body">
+          <p>Prospección: reporte SEO y web plantilla + IA genérica. Llamada de cierre: YDOIA clona la web CRO maestra, inyecta el logo y los colores de la clínica y entrena a la IA con sus datos antes de la reunión; el closer recibe un enlace privado (por ejemplo, preview.ydoia.com/clinica-x) para enseñarlo en directo.</p>
+          <p>Auditoría: el PDF es un ejemplo para arrancar; YDOIA está terminando una herramienta que la generará en formato web privado con un clic y permitirá saber si la clínica la ha abierto.</p>
+          <p>Plazo: 10 días hábiles desde que la clínica envía todo el material (textos, logo, fotos y accesos). El formulario de onboarding recoge por separado la información de la clínica y los datos para el asistente.</p>
+          <p>Prospectos: CSV por localidades, de forma gradual según avance la organización por zonas (ejemplo recibido: Fuengirola, lote 001).</p>
+          <p>Después del cierre: la clínica paga, se marca "Cerrado/Pagado" y ese aviso dispara el paquete de bienvenida de YDOIA: factura de Stripe, email de bienvenida y formulario de onboarding técnico. Desde ahí YDOIA asume el 100% de la producción.</p>
+          <p>Grabaciones de llamadas: no hay todavía; se compartirán cuando las haya.</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>12 · Prueba social original</summary>
+        <div class="acc-body">
+          <p>Caso 1, captación fuera de horario: una clínica en Madrid empezó a recibir solicitudes de cita de pacientes que escribían a partir de la hora de cierre y los domingos; el asistente los atendió, cualificó y agendó sin intervención del equipo.</p>
+          <p>Caso 2, conversión orgánica: una clínica en Málaga migró de una web informativa a la arquitectura CRO y la tasa de contactos desde búsqueda orgánica mejoró en las primeras semanas.</p>
+          <p>Cifras compartidas como proyecciones: hasta un 300% más de conversión del tráfico que se perdía en la web en los primeros 60 días; no-shows del 40% al 10% con el seguimiento por IA; hasta el triple de tráfico local en Maps.</p>
+        </div>
+      </details>
+    </section>
+
+<footer class="site-footer">
+      <div class="ft-grid">
+        <div class="ft-brand"><a class="logo" href="#top"><svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#C9A84C" stroke-width="3" fill="#060606"/><polygon points="50,16 79,32 79,68 50,84 21,68 21,32" stroke="#8E763A" stroke-width="1.2" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#C9A84C" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="logo-text"><span class="brand-name">CLOSER<span class="search"> SEARCH</span></span><span class="logo-sub">Selección de talento de cierre</span></span></a>
+          <p>Seleccionamos, formamos y dirigimos equipos de cierre para empresas digitales.</p></div>
+        <div><h5>Este informe</h5><a href="#resumen">Resumen ejecutivo</a><a href="#oferta">Planes y add-ons</a><a href="#conversaciones">Modelo de conversación</a><a href="#proceso-closer">Procedimiento</a></div>
+        <div><h5>Herramientas</h5><a href="https://dmartinezvhune-create.github.io/Proyecto-YDOIA/guia.html" target="_blank" rel="noopener">Guía de ventas</a><a href="https://lumina.ydoia.com/" target="_blank" rel="noopener">Demo general</a><a href="https://dental.ydoia.com/asistente-ia/demo" target="_blank" rel="noopener">Demo del Asistente IA</a><a href="#calculadora">Calculadora</a></div>
+        <div><h5>Closer Search</h5><span>Closer Search Consulting S.L.</span><span>Barcelona</span><a href="https://www.closersearch.com" target="_blank" rel="noopener">www.closersearch.com</a></div>
+      </div>
+      <div class="ft-bottom">© 2026 Closer Search · Informe operativo interno sobre YDOIA Agency</div>
+    </footer>
+</main>
+<script>
+  (function(){
+    var fmt = function(n, d){ var p=n.toFixed(d).split('.'); p[0]=p[0].replace(/\B(?=(\d{3})+(?!\d))/g,'.'); return p.join(','); };
+    function calc(){
+      var pl = document.getElementById('c-plan').value.split('|').map(Number);
+      var promo = document.getElementById('c-precio').value==='pr';
+      var t = parseFloat(document.getElementById('c-ticket').value)||0;
+      var pe = parseFloat(document.getElementById('c-perd').value)||0;
+      var anual = (promo?pl[1]:pl[0]) + 12*pl[2];
+      document.getElementById('r-anual').textContent = fmt(anual,0)+'€';
+      document.getElementById('r-pa').textContent = t>0 ? fmt(anual/t,1) : '—';
+      document.getElementById('r-pm').textContent = t>0 ? fmt(anual/t/12,1) : '—';
+      document.getElementById('r-esc-m').textContent = fmt(pe*t,0)+'€';
+      document.getElementById('r-esc-a').textContent = fmt(pe*t*12,0)+'€';
+      document.getElementById('r-x').textContent = anual>0 && pe*t>0 ? fmt(pe*t*12/anual,1)+' veces' : '—';
+      var sel = document.getElementById('c-plan').selectedIndex;
+      document.getElementById('r-note').textContent = (sel===0 ? 'Starter no lleva Asistente IA: el argumento del paciente fuera de horario no aplica; habla de visibilidad en Google y en las IAs. ' : '') + (promo ? 'Precio promo solo si quedan plazas en el lote de 10 vigente. ' : '') + 'IVA pendiente de confirmar por YDOIA. Es una cuenta con sus datos, no una promesa de resultados.';
+    }
+    ['c-plan','c-precio','c-ticket','c-perd'].forEach(function(id){ document.getElementById(id).addEventListener('input', calc); document.getElementById(id).addEventListener('change', calc); });
+    calc();
+  })();
+</script>
+<script>
+/* Justificado sin distorsión: si en algún párrafo una línea quedaría demasiado estirada, ese párrafo se alinea a la izquierda */
+(function(){
+  var SEL='main p, main li, main tbody td:not(.label), .say';
+  var MAX_SLACK=0.14;
+  function fix(){
+    document.querySelectorAll(SEL).forEach(function(el){
+      if(getComputedStyle(el).textAlign!=='justify' && !el.dataset.just) return;
+      el.dataset.just='1';
+      el.style.textAlign='left';
+      var cs=getComputedStyle(el);
+      var inner=el.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
+      if(inner<=0) return;
+      var r=document.createRange(); r.selectNodeContents(el);
+      var rects=[].slice.call(r.getClientRects()).filter(function(x){return x.width>0;});
+      var lines={};
+      rects.forEach(function(x){var k=Math.round(x.top/4); if(!lines[k]) lines[k]={l:x.left,r:x.right}; else {lines[k].l=Math.min(lines[k].l,x.left); lines[k].r=Math.max(lines[k].r,x.right);} });
+      var keys=Object.keys(lines).map(Number).sort(function(a,b){return a-b;});
+      if(keys.length<2){ el.style.textAlign='justify'; return; }
+      var bad=false;
+      for(var i=0;i<keys.length-1;i++){
+        var w=lines[keys[i]].r-lines[keys[i]].l;
+        if((inner-w)/inner>MAX_SLACK){ bad=true; break; }
+      }
+      el.style.textAlign=bad?'left':'justify';
+    });
+  }
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fix,120);});
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(fix); else window.addEventListener('load',fix);
+  fix();
+})();
+</script>
+
+<a class="to-top" href="#top" aria-label="Volver arriba">↑</a>
+</body>
+</html>
